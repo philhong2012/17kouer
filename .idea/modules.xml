@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/17kouer.iml" filepath="$PROJECT_DIR$/17kouer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/da/da.iml" filepath="$PROJECT_DIR$/da/da.iml" />
+      <module fileurl="file://$PROJECT_DIR$/facade/facade.iml" filepath="$PROJECT_DIR$/facade/facade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sel-web/selweb.iml" filepath="$PROJECT_DIR$/sel-web/selweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service/service.iml" filepath="$PROJECT_DIR$/service/service.iml" />
+    </modules>
+  </component>
+</project>
