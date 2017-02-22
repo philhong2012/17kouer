@@ -1,4 +1,4 @@
-package com.17kouer;
+package com.seventeenkouer;
 
 /**
  * Hello world!
