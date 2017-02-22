@@ -14,7 +14,6 @@ import java.util.Map;
 @Controller
 @RequestMapping("/hello")
 public class helloController  {
-
     @RequestMapping("/greeting")
     public ModelAndView hello(@RequestParam("name") String name) {
         Map model = new HashMap<>();

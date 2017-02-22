@@ -35,7 +35,9 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>springmvc</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <!--这里如果配置成 /* jsp文件将不被解析-->
+        <!--参考:http://www.cnblogs.com/canger/p/6084846.html-->
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
 
