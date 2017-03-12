@@ -24,16 +24,19 @@
         <processorPath useClasspath="true" />
         <module name="da" />
         <module name="facade" />
+        <module name="meetrun-spring" />
+        <module name="meetrun-web" />
         <module name="selweb" />
         <module name="service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="17kouer" target="1.5" />
       <module name="da" target="1.5" />
       <module name="facade" target="1.5" />
-      <module name="sel" target="1.5" />
-      <module name="selweb" target="1.5" />
+      <module name="jx" target="1.5" />
+      <module name="meetrun-spring" target="1.8" />
+      <module name="meetrun-web" target="1.5" />
+      <module name="selweb" target="1.7" />
       <module name="service" target="1.5" />
     </bytecodeTargetLevel>
   </component>
