@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC
+    "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 配置mysql分页拦截器 start-->
+        <plugins>
+
+           <plugin interceptor="com.zdnst.common.infra.mybatis.interceptor.PaginationInterceptor">
+               <property name="dialectConf" value="mysql"/>
+               <property name="pageSqlId" value=".*ByPage.*"/>
+           </plugin>
+
+        <!-- 配置打印sql语句
+        <plugin interceptor="com.zdnst.common.infra.mybatis.interceptor.PageLogInterceptor">
+        </plugin>
+-->
+    </plugins>
+	
+</configuration>

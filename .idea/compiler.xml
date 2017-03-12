@@ -22,20 +22,35 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="common" />
         <module name="da" />
         <module name="facade" />
-        <module name="meetrun-spring" />
         <module name="meetrun-web" />
-        <module name="selweb" />
         <module name="service" />
+      </profile>
+      <profile default="false" name="Annotation profile for selweb" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="selweb" />
+      </profile>
+      <profile default="false" name="Annotation profile for meetrun-spring" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="meetrun-spring" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="17kouer" target="1.5" />
+      <module name="common" target="1.5" />
       <module name="da" target="1.5" />
       <module name="facade" target="1.5" />
-      <module name="jx" target="1.5" />
       <module name="meetrun-spring" target="1.8" />
       <module name="meetrun-web" target="1.5" />
+      <module name="sel" target="1.5" />
       <module name="selweb" target="1.7" />
       <module name="service" target="1.5" />
     </bytecodeTargetLevel>
