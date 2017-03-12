@@ -18,6 +18,8 @@ public class helloController  {
     public ModelAndView hello(@RequestParam("name") String name) {
         Map model = new HashMap<>();
         model.put("name",name);
+
+        //test
         return  new ModelAndView("hello",model);
     }
 }

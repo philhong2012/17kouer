@@ -1,6 +1,6 @@
 package com.seventeenkouer.common.mybatis.page;
 
-import com.zdnst.common.infra.utils.StringUtils;
+import com.seventeenkouer.common.common.StringUtils;
 
 import java.util.List;
 

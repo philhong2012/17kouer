@@ -25,22 +25,8 @@
         <module name="common" />
         <module name="da" />
         <module name="facade" />
-        <module name="meetrun-web" />
-        <module name="service" />
-      </profile>
-      <profile default="false" name="Annotation profile for selweb" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
         <module name="selweb" />
-      </profile>
-      <profile default="false" name="Annotation profile for meetrun-spring" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="meetrun-spring" />
+        <module name="service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

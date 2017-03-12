@@ -13,8 +13,6 @@
         <module>service</module>
         <module>da</module>
         <module>facade</module>
-        <module>meetrun-web</module>
-        <module>meetrun-spring</module>
         <module>common</module>
     </modules>
 
