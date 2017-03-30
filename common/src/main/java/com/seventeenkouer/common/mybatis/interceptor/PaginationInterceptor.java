@@ -1,7 +1,7 @@
 package com.seventeenkouer.common.mybatis.interceptor;
 
 
-import com.seventeenkouer.common.common.StringUtils;
+import com.seventeenkouer.common.utils.StringUtils;
 import com.seventeenkouer.common.mybatis.page.*;
 import org.apache.ibatis.executor.ErrorContext;
 import org.apache.ibatis.executor.Executor;

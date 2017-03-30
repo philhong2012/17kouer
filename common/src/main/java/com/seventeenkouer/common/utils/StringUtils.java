@@ -1,4 +1,4 @@
-package com.seventeenkouer.common.common;
+package com.seventeenkouer.common.utils;
 
 //import com.google.common.collect.Sets;
 
