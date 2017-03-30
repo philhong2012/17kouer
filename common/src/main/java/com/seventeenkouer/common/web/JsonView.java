@@ -1,7 +1,7 @@
 package com.seventeenkouer.common.web;
 
 
-import com.seventeenkouer.common.Exception.ZdnstException;
+import com.seventeenkouer.common.Exception.SeventeenkouException;
 import com.seventeenkouer.common.utils.StringUtils;
 import com.seventeenkouer.common.constants.BaseCode;
 import com.seventeenkouer.common.dto.BaseDto;
@@ -188,7 +188,7 @@ public class JsonView {
         try {
 			ex.printStackTrace();
             ResponseParam resParam=new ResponseParam();
-            ZdnstException zde = BaseCode.getZdnstException(ex);
+            SeventeenkouException zde = BaseCode.getZdnstException(ex);
             String errorMessage = BaseCode.getMsg(zde);            
         	resParam.setCode(zde.getCode());
         	resParam.setData(data == null?new HashMap():data);        	
@@ -217,7 +217,7 @@ public class JsonView {
 	public static ResponseResult addErrorToJson(Exception ex, Object data){
 		try {
 			ResponseResult resParam=new ResponseResult();
-			ZdnstException zde = BaseCode.getZdnstException(ex);
+			SeventeenkouException zde = BaseCode.getZdnstException(ex);
 			String errorMessage = BaseCode.getMsg(zde);
 			resParam.setCode(zde.getCode());
 			//resParam.setData(data == null?new HashMap():data);

@@ -2,7 +2,7 @@ package com.seventeenkouer.common.constants;
 
 
 
-import com.seventeenkouer.common.Exception.ZdnstException;
+import com.seventeenkouer.common.Exception.SeventeenkouException;
 import com.seventeenkouer.common.utils.StringUtils;
 
 import java.util.HashMap;
@@ -710,7 +710,7 @@ public class BaseCode {
      * @author:kaiqiang.wu
      * @time:2015年11月24日上午10:41:20
      */
-    public static String getMsg(ZdnstException zde) {
+    public static String getMsg(SeventeenkouException zde) {
         String code = zde != null ? zde.getCode() : BaseCode.ERROR_CODE110;
         String errorMessage = "";
         //业务逻辑错误时，直接返回直接异常，因而抛出此异常时，注意此异常消息内容
@@ -731,7 +731,7 @@ public class BaseCode {
      * @time:2015年11月24日上午10:46:55
      */
     public static String getMsg(Exception ex) {
-        ZdnstException zde = getZdnstException(ex);
+        SeventeenkouException zde = getZdnstException(ex);
         String errorMessage = getMsg(zde);
         return errorMessage;
     }
@@ -744,12 +744,12 @@ public class BaseCode {
      * @author:kaiqiang.wu
      * @time:2015年11月24日上午10:55:10
      */
-    public static ZdnstException getZdnstException(Exception ex) {
-        ZdnstException zde = null;
-        if (ex instanceof ZdnstException) {
-            zde = (ZdnstException) ex;
+    public static SeventeenkouException getZdnstException(Exception ex) {
+        SeventeenkouException zde = null;
+        if (ex instanceof SeventeenkouException) {
+            zde = (SeventeenkouException) ex;
         } else {
-            zde = new ZdnstException(BaseCode.ERROR_CODE110, ex);
+            zde = new SeventeenkouException(BaseCode.ERROR_CODE110, ex);
         }
         return zde;
     }
@@ -764,7 +764,7 @@ public class BaseCode {
      * @time:2015年11月24日上午10:46:55
      */
     public static String getDetailMsg(Exception ex) {
-        ZdnstException zde = getZdnstException(ex);
+        SeventeenkouException zde = getZdnstException(ex);
         String errorMessage = zde.getCode() + StringUtils.BLANK + getMsg(zde.getCode()) + StringUtils.BLANK + zde.getMessage();
         return errorMessage;
     }
@@ -775,7 +775,7 @@ public class BaseCode {
      * @param code
      * @return
      */
-    public static boolean isException(ZdnstException zde,String code) {
+    public static boolean isException(SeventeenkouException zde,String code) {
         if(zde == null || code == null){
             return false;
         }
