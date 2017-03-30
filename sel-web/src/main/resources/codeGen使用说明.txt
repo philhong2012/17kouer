@@ -1,0 +1,3 @@
+Terminal 窗口输入如下命令：
+cd zdnst-app/zdnst-jsf 目录
+mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate

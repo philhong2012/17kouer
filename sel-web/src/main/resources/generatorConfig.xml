@@ -4,42 +4,53 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
+
     <!-- 配置文件路径 -->
-    <properties url="resources.properties"/>
+    <properties url="file:///E:/17kouer/sel-web/src/main/resources/codeGen.properties"/>
 
     <!--数据库驱动包路径 -->
-    <classPathEntry location="/Users/wind/work/developtools/mybatis_generate/mysql-connector-java-5.1.25.jar"/>
+    <classPathEntry location="D:/jdbc/mysql-connector-java-5.1.25.jar"/>
 
-    <context id="MySQLTables" targetRuntime="MyBatis3">
+    <context id="MySQLTables" targetRuntime="MyBatis3" >
+        <property name="javaFileEncoding" value="UTF-8"/>
         <!--关闭注释 -->
-        <commentGenerator>
+        <commentGenerator type="com.seventeenkouer.common.mybatis.MyCommentGenerator">
             <property name="suppressDate" value="true"/>
+            <property name="addRemarkComments" value="true"/>
+            <property name="suppressAllComments" value="false" />
         </commentGenerator>
 
         <!--数据库连接信息 -->
         <jdbcConnection driverClass="${jdbc.driver}" connectionURL="${jdbc.url}" userId="${jdbc.username}"
                         password="${jdbc.password}">
+            <!-- <property name="useInformationSchema" value="true"></property>-->
         </jdbcConnection>
 
         <!--生成的model 包路径 -->
         <javaModelGenerator targetPackage="${model.package}" targetProject="${target.project}">
-            <property name="enableSubPackages" value="ture"/>
+            <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!--生成xml mapper文件 路径 -->
-        <sqlMapGenerator targetPackage="${xml.mapper.package}" targetProject="${target.project}">
-            <property name="enableSubPackages" value="ture"/>
+        <sqlMapGenerator targetPackage="${xml.mapper.package}" targetProject="${xml.mapper.target}">
+            <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <!-- 生成的Dao接口 的包路径 -->
         <javaClientGenerator type="XMLMAPPER" targetPackage="${dao.package}" targetProject="${target.project}">
-            <property name="enableSubPackages" value="ture"/>
+            <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
         <!--对应数据库表名 -->
-        <table tableName="t_sel_students">
-
+        <table tableName="ju_fn_funeral_service_item"
+               domainObjectName="FuneralServiceItem"
+               enableSelectByExample="false"
+               enableDeleteByExample="false"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               selectByExampleQueryId="false">
+            <property  name="useActualColumnNames" value="true" />
         </table>
     </context>
 </generatorConfiguration>

@@ -25,8 +25,14 @@
         <module name="common" />
         <module name="da" />
         <module name="facade" />
-        <module name="selweb" />
         <module name="service" />
+      </profile>
+      <profile default="false" name="Annotation profile for selweb" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="selweb" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
