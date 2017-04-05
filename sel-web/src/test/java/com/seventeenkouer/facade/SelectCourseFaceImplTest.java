@@ -19,7 +19,19 @@ public class SelectCourseFaceImplTest extends TestCase {
     SelectCourseFace selectCourseFace;
     @Test
     public void testGetById() {
-        SelCourse selCourse = selectCourseFace.getById("abc");
-        Assert.assertTrue(selCourse == null);
+        SelCourse selCourse = selectCourseFace.getById("e0b408a0-db7e-43e9-b0cd-c57010ed8174");
+        Assert.assertTrue(selCourse != null);
     }
+
+    @Test
+    public void testInsertSelective() {
+        SelCourse selCourse = new SelCourse();
+        selCourse.setCourseName("test");
+        selCourse.setCourseCode("code");
+        selCourse.setCreatedBy("tester");
+        selectCourseFace.insertSelective(selCourse);
+
+    }
+
+
 }

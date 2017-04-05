@@ -7,4 +7,5 @@ import com.seventeenkouer.da.model.SelCourse;
  */
 public interface SelectCourseFace {
     SelCourse getById(String courseId);
+    SelCourse insertSelective(SelCourse selCourse);
 }
