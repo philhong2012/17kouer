@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.seventeenkouer.da.mapper.SelCourseMapper" >
+  <resultMap id="BaseResultMap" type="com.seventeenkouer.da.model.SelCourse" >
+    <id column="courseId" property="courseId" jdbcType="VARCHAR" />
+    <result column="courseName" property="courseName" jdbcType="VARCHAR" />
+    <result column="courseCode" property="courseCode" jdbcType="VARCHAR" />
+    <result column="createdTime" property="createdTime" jdbcType="BIGINT" />
+    <result column="updateTime" property="updateTime" jdbcType="BIGINT" />
+    <result column="createdBy" property="createdBy" jdbcType="VARCHAR" />
+    <result column="updatedBy" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="delFlag" property="delFlag" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    courseId, courseName, courseCode, createdTime, updateTime, createdBy, updatedBy, 
+    delFlag
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_sel_course
+    where courseId = #{courseId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_sel_course
+    where courseId = #{courseId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.seventeenkouer.da.model.SelCourse" >
+    insert into t_sel_course (courseId, courseName, courseCode, 
+      createdTime, updateTime, createdBy, 
+      updatedBy, delFlag)
+    values (#{courseId,jdbcType=VARCHAR}, #{courseName,jdbcType=VARCHAR}, #{courseCode,jdbcType=VARCHAR}, 
+      #{createdTime,jdbcType=BIGINT}, #{updateTime,jdbcType=BIGINT}, #{createdBy,jdbcType=VARCHAR}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{delFlag,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.seventeenkouer.da.model.SelCourse" >
+    insert into t_sel_course
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="courseId != null" >
+        courseId,
+      </if>
+      <if test="courseName != null" >
+        courseName,
+      </if>
+      <if test="courseCode != null" >
+        courseCode,
+      </if>
+      <if test="createdTime != null" >
+        createdTime,
+      </if>
+      <if test="updateTime != null" >
+        updateTime,
+      </if>
+      <if test="createdBy != null" >
+        createdBy,
+      </if>
+      <if test="updatedBy != null" >
+        updatedBy,
+      </if>
+      <if test="delFlag != null" >
+        delFlag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="courseId != null" >
+        #{courseId,jdbcType=VARCHAR},
+      </if>
+      <if test="courseName != null" >
+        #{courseName,jdbcType=VARCHAR},
+      </if>
+      <if test="courseCode != null" >
+        #{courseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.seventeenkouer.da.model.SelCourse" >
+    update t_sel_course
+    <set >
+      <if test="courseName != null" >
+        courseName = #{courseName,jdbcType=VARCHAR},
+      </if>
+      <if test="courseCode != null" >
+        courseCode = #{courseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        createdTime = #{createdTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        updateTime = #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="createdBy != null" >
+        createdBy = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedBy != null" >
+        updatedBy = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        delFlag = #{delFlag,jdbcType=BIT},
+      </if>
+    </set>
+    where courseId = #{courseId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.seventeenkouer.da.model.SelCourse" >
+    update t_sel_course
+    set courseName = #{courseName,jdbcType=VARCHAR},
+      courseCode = #{courseCode,jdbcType=VARCHAR},
+      createdTime = #{createdTime,jdbcType=BIGINT},
+      updateTime = #{updateTime,jdbcType=BIGINT},
+      createdBy = #{createdBy,jdbcType=VARCHAR},
+      updatedBy = #{updatedBy,jdbcType=VARCHAR},
+      delFlag = #{delFlag,jdbcType=BIT}
+    where courseId = #{courseId,jdbcType=VARCHAR}
+  </update>
+</mapper>
