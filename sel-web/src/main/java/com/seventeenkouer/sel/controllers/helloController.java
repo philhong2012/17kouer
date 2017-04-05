@@ -1,8 +1,8 @@
 package com.seventeenkouer.sel.controllers;
 
-import com.seventeenkouer.FuneralServiceItemFace;
+import com.seventeenkouer.facade.SelectCourseFace;
 import com.seventeenkouer.common.web.JsonView;
-import com.seventeenkouer.da.model.FuneralServiceItem;
+import com.seventeenkouer.da.model.SelCourse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +22,7 @@ import java.util.Map;
 @RequestMapping("/hello")
 public class helloController  {
     @Autowired
-    FuneralServiceItemFace funeralServiceItemFace;
+    SelectCourseFace selectCourseFace;
 
     @RequestMapping("/greeting")
     public ModelAndView hello(@RequestParam("name") String name) {
@@ -35,9 +35,9 @@ public class helloController  {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/getServiceItem")
-    public ModelAndView getServiceItem(@RequestParam("name") String name,HttpServletRequest request,HttpServletResponse response) {
-        FuneralServiceItem funeralServiceItem = funeralServiceItemFace.getById("");
-        return JsonView.dataToJson(funeralServiceItem,response);
+    public ModelAndView getCourse(@RequestParam("name") SelCourse selCourse, HttpServletRequest request, HttpServletResponse response) {
+        SelCourse selCourse1 = selectCourseFace.getById(selCourse.getCourseId());
+        return JsonView.dataToJson(selCourse1,response);
 
     }
 }
