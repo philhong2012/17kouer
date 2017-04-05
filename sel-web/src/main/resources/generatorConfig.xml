@@ -6,10 +6,10 @@
 <generatorConfiguration>
 
     <!-- 配置文件路径 -->
-    <properties url="file:///E:/17kouer/sel-web/src/main/resources/codeGen.properties"/>
+    <properties url="file:////Users/wind/work/code/17kouer/sel-web/src/main/resources/codeGen.properties"/>
 
     <!--数据库驱动包路径 -->
-    <classPathEntry location="D:/jdbc/mysql-connector-java-5.1.25.jar"/>
+    <classPathEntry location="/Users/wind/work/developtools/mybatis_generate/mysql-connector-java-5.1.25.jar"/>
 
     <context id="MySQLTables" targetRuntime="MyBatis3" >
         <property name="javaFileEncoding" value="UTF-8"/>
@@ -43,8 +43,8 @@
         </javaClientGenerator>
 
         <!--对应数据库表名 -->
-        <table tableName="ju_fn_funeral_service_item"
-               domainObjectName="FuneralServiceItem"
+        <table tableName="t_sel_course"
+               domainObjectName="SelCourse"
                enableSelectByExample="false"
                enableDeleteByExample="false"
                enableCountByExample="false"
