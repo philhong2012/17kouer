@@ -8,7 +8,7 @@
 
            <plugin interceptor="com.seventeenkouer.common.mybatis.interceptor.PaginationInterceptor">
                <property name="dialectConf" value="mysql"/>
-               <property name="pageSqlId" value=".*ByPage.*"/>
+               <property name="pageSqlId" value="(.*ByPage.*|.*ByPagination.*)"/>
            </plugin>
 
         <!-- 配置打印sql语句

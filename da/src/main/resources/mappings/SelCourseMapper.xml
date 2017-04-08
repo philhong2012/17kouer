@@ -126,4 +126,32 @@
       delFlag = #{delFlag,jdbcType=BIT}
     where courseId = #{courseId,jdbcType=VARCHAR}
   </update>
+
+  <select id="selectByPagination" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from t_sel_course
+    where 1 = 1
+    <if test="courseName != null" >
+      and courseName = #{courseName,jdbcType=VARCHAR},
+    </if>
+    <if test="courseCode != null" >
+      and courseCode = #{courseCode,jdbcType=VARCHAR},
+    </if>
+    <if test="createdTime != null" >
+      and createdTime = #{createdTime,jdbcType=BIGINT},
+    </if>
+    <if test="updateTime != null" >
+      and updateTime = #{updateTime,jdbcType=BIGINT},
+    </if>
+    <if test="createdBy != null" >
+      and createdBy = #{createdBy,jdbcType=VARCHAR},
+    </if>
+    <if test="updatedBy != null" >
+      and updatedBy = #{updatedBy,jdbcType=VARCHAR},
+    </if>
+    <if test="delFlag != null" >
+      and delFlag = #{delFlag,jdbcType=BIT},
+    </if>
+  </select>
 </mapper>
