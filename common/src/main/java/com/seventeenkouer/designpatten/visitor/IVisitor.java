@@ -8,5 +8,4 @@ public interface IVisitor {
     void visitConcreteElementB(ConcreteElementB concreteElementB);
 
 
-    void visitElement(BaseElement baseElement);
 }

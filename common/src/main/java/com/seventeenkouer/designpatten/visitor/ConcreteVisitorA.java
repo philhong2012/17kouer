@@ -14,13 +14,4 @@ public class ConcreteVisitorA implements IVisitor {
 
     }
 
-    @Override
-    public void visitElement(BaseElement baseElement) {
-        if(baseElement instanceof ConcreteElementA) {
-            //baseElement.accept();
-
-        } else if(baseElement instanceof  ConcreteElementB) {
-
-        }
-    }
 }
