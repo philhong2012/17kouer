@@ -45,6 +45,7 @@ public class TokenController {
             }
         } else {
             //Post:处理微信消息
+            response.setContentType("text/html;charset=utf-8"); //设置输出编码格式
             String result = "";
             try {
                 Map map = MessageHandler.parseXml(request);
