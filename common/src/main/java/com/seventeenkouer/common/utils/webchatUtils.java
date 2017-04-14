@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class WebchatUtils {
     static Logger logger = LoggerFactory.getLogger(WebchatUtils.class);
     private static String TOKEN = "17kouer";
-    public static String checkToken(String signature,String timestamp,String nonce,String echostr) {
+    public static boolean checkToken(String signature,String timestamp,String nonce,String echostr) {
         logger.debug("开始签名校验 signature:{} timestamp:{},nonce:{},echostr:{}",
                 signature,timestamp,nonce,echostr);
 
@@ -29,10 +29,10 @@ public class WebchatUtils {
         if (mytoken != null && mytoken != "" && mytoken.equals(signature)) {
             logger.debug("签名校验通过。");
             //response.getWriter().println(echostr);
-            return echostr;
+            return true;
         } else {
             logger.debug("签名校验失败。");
-            return "";
+            return false;
         }
     }
 

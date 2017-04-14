@@ -30,10 +30,7 @@ public class Start extends HttpServlet {
         String nonce = request.getParameter("nonce");
         String echostr = request.getParameter("echostr");
 
-        String result = WebchatUtils.checkToken(signature,timestamp,nonce,echostr);
-
-
-        if (result != null && result != "" && result.equals(signature)) {
+        if(WebchatUtils.checkToken(signature,timestamp,nonce,echostr)) {
             response.getWriter().println(echostr);
         }
     }
