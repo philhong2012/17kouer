@@ -45,7 +45,9 @@ public class TokenController {
             }
         } else {
             //Post:处理微信消息
+            //输出字节流采用UTF-8编码,否则会出现乱码
             response.setCharacterEncoding("UTF-8");
+            //告诉浏览器或其他的什么查看器,内容的编码是utf-8格式
             response.setContentType("text/html;charset=utf-8"); //设置输出编码格式
             String result = "";
             try {
