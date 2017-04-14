@@ -5,6 +5,7 @@ package com.seventeenkouer.weiapp.webchat;
  */
 
 
+import com.seventeenkouer.common.utils.WebchatUtils;
 import com.seventeenkouer.weiapp.webchat.message.MessageHandler;
 
 import javax.servlet.ServletException;

@@ -1,5 +1,6 @@
 package com.seventeenkouer.weiapp.controllers;
 
+import com.seventeenkouer.common.utils.WebchatUtils;
 import com.seventeenkouer.weiapp.webchat.message.MessageHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
