@@ -15,7 +15,7 @@ public class SystemProperties {
     private static Properties props;
     
     /**
-     * This method returns the property values, if found. It loads the properties
+     * This method returns the property values, if found.  It loads the properties
      * from the map properties file if not already loaded.
      * @param             property        the property whose value is requested for
      * @param             def             the default value to return if property not found
