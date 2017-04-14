@@ -45,12 +45,16 @@ public class TokenController {
             }
         } else {
             //Post:处理微信消息
+            response.setCharacterEncoding("UTF-8");
             response.setContentType("text/html;charset=utf-8"); //设置输出编码格式
             String result = "";
             try {
                 Map map = MessageHandler.parseXml(request);
                 System.out.println("开始构造消息");
                 result = MessageHandler.buildXml(map, response);
+
+
+
                 System.out.println(result);
                 if(result.equals(""))
                     result = "未正确响应";
