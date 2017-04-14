@@ -21,7 +21,16 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <!--微信消息响应-->
+    <servlet>
+        <servlet-name>start</servlet-name>
+        <servlet-class>com.seventeenkouer.weiapp.webchat.Start</servlet-class>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>start</servlet-name>
+        <url-pattern>/weiapi2</url-pattern>
+    </servlet-mapping>
 
 
     <!-- SpringMVC -->
@@ -40,6 +49,22 @@
         <!--参考:http://www.cnblogs.com/canger/p/6084846.html-->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>initAccessTokenServlet</servlet-name>
+        <servlet-class>
+            com.seventeenkouer.weiapp.webchat.accesstoken.AccessTokenServlet
+        </servlet-class>
+        <init-param>
+            <param-name>appid</param-name>
+            <param-value>wx2eb9e091ecfd0316</param-value>
+        </init-param>
+        <init-param>
+            <param-name>appsecret</param-name>
+            <param-value>d4044873384e9f245bc9b0e0bd0d7b24</param-value>
+        </init-param>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
 
 
     <listener>

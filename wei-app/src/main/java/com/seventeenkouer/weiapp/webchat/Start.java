@@ -34,6 +34,7 @@ public class Start extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8"); //设置输出编码格式
         System.out.println("请求进入");
         String result = "";
