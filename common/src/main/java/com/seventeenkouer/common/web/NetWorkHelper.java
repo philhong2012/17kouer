@@ -1,4 +1,4 @@
-package com.seventeenkouer.weiapp.webchat.common;
+package com.seventeenkouer.common.web;
 
 import javax.net.ssl.*;
 import java.io.*;
@@ -14,6 +14,12 @@ import java.util.Map;
 
 
 public class NetWorkHelper {
+    private static NetWorkHelper netWorkHelper = new NetWorkHelper();
+
+    public static NetWorkHelper getInstance() {
+        return  netWorkHelper;
+    }
+
     public String GetMessage(String path) {
 
         try {
@@ -80,6 +86,8 @@ public class NetWorkHelper {
             // return 网络访问失败;
         }
     }
+
+
 
     public String getURLResponse(String urlString) {
         HttpURLConnection conn = null; //连接对象

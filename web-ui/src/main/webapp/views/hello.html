@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello</title>
+</head>
+<body>
+ hello guy,from now on ,we will seprate the UI from background programs
+
+
+
+ <div>
+    <label>let's create a course for students.</label>
+     <div>name: <input type="text" name="courseName" /></div>
+     <div>code: <input type="text" name="courseCode" /></div>
+     <input type="button" onclick="onSave()" value="save"> </input>
+ </div>
+
+</body>
+<script type="text/javascript" src="../js/jquery-3.2.1.min.js">
+</script>
+
+<script type="text/javascript">
+    
+    function onSave() {
+        var course = {};
+        $("input[type='text']").each(function (i, e) {
+            course[e.name] = e.value;
+        });
+        course.createdBy = "phil";
+
+
+        $.ajax({
+                    method: "POST",
+                    url: "http://localhost:8080/selweb/hello/saveSelCourse",
+                    data: JSON.stringify(course),
+                    dataType:'json',
+                    contentType: "application/json; charset=utf-8"
+
+                })
+                .done(function( msg ) {
+                    alert( "Data Saved: " + msg );
+                });
+    }
+    
+    $(function () {
+        //$("input").
+    });
+</script>
+
+</html>

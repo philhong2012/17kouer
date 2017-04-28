@@ -2,7 +2,7 @@ package com.seventeenkouer.weiapp.webchat.accesstoken;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.seventeenkouer.weiapp.webchat.common.NetWorkHelper;
+import com.seventeenkouer.common.web.NetWorkHelper;
 
 
 /**
