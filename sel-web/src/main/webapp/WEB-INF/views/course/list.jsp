@@ -12,11 +12,13 @@
     <title>Title</title>
 </head>
 <body>
-<c:forEach var="i" begin="1" end="5">
-    Item <c:out value="${i}"/><p>
+<a href="/course/create">create</a>
+<ul>
+<c:forEach var="course" items="${list}">
+    <li>  ${course.courseName}</li>
 
-</p></c:forEach>
-
+</c:forEach>
+</ul>
 
 </body>
 </html>

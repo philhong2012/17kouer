@@ -10,7 +10,7 @@
 <body>
   <input type="text" name="courseName" >
 
-  <input type="button" value="保存" onclick="onSave()">
+  <input type="button" value="保存" onclick="onSave()"><a href="/course/list">list</a>
 </body>
 
 <script type="text/javascript">

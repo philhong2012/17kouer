@@ -1,7 +1,6 @@
 package com.seventeenkouer.sel.controllers;
 
 import com.seventeenkouer.common.web.JsonView;
-import com.seventeenkouer.da.model.SelCourse;
 import com.seventeenkouer.facade.SelectCourseFace;
 import com.seventeenkouer.facade.dto.SelCourseDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * ${DESCRIPTION}
@@ -36,9 +37,13 @@ public class SelController {
         return JsonView.dataToJson(selCourse1,response);
     }
 
-    @RequestMapping("/getCourses")
-    public ModelAndView getCourses(@RequestBody SelCourseDto selCourse, HttpServletRequest request, HttpServletResponse response) {
-        List<SelCourseDto> selCourse1 = selectCourseFace.getByPagination(selCourse);
-        return JsonView.dataToJson(selCourse1,response);
+    @RequestMapping("/list")
+    public ModelAndView getCourses(HttpServletRequest request, HttpServletResponse response) {
+        SelCourseDto queryParam = new SelCourseDto();
+        List<SelCourseDto> selCourse1 = selectCourseFace.getByPagination(queryParam);
+
+        Map<String,Object> model = new HashMap<>();
+        model.put("list",selCourse1);
+        return new ModelAndView("/course/list",model);
     }
 }
