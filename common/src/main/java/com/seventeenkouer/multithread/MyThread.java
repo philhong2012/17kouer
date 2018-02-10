@@ -1,9 +1,6 @@
 package com.seventeenkouer.multithread;
 
 
-import com.alibaba.fastjson.JSON;
-import com.seventeenkouer.common.web.HttpClientUtil;
-import com.seventeenkouer.dto.SelCourseDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,7 +19,7 @@ public class MyThread extends Thread {
 
     @Override
     public void run() {
-        SelCourseDto selCourseDto = new SelCourseDto();
+       /* SelCourseDto selCourseDto = new SelCourseDto();
         selCourseDto.setCourseId(UUID.randomUUID().toString());
         selCourseDto.setCourseCode(this.getName());
         selCourseDto.setCourseName(this.getName());
@@ -32,6 +29,6 @@ public class MyThread extends Thread {
         //List<String>  arr = new ArrayList<>(1000);
         //logger.info("thread name :  {} ; thread id {} " ,this.getName(),this.getId() );
         HttpClientUtil.sendHttpPostJson(url,JSON.toJSONString(selCourseDto));
-        System.out.printf("thread name :  %s ; thread id %d \n" ,this.getName(),this.getId());
+        System.out.printf("thread name :  %s ; thread id %d \n" ,this.getName(),this.getId());*/
     }
 }

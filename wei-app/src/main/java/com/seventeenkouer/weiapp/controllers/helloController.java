@@ -3,7 +3,7 @@ package com.seventeenkouer.weiapp.controllers;
 import com.seventeenkouer.common.web.JsonView;
 import com.seventeenkouer.da.model.SelCourse;
 import com.seventeenkouer.facade.SelectCourseFace;
-import com.seventeenkouer.facade.dto.CourseDto;
+import com.seventeenkouer.facade.dto.SelCourseDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,8 +44,8 @@ public class helloController {
      * @return
      */
     @RequestMapping(method = RequestMethod.GET, value = "/getSelCourse")
-    public ModelAndView getCourse(@ModelAttribute SelCourse selCourse, HttpServletRequest request, HttpServletResponse response) {
-        SelCourse selCourse1 = selectCourseFace.getById(selCourse.getCourseId());
+    public ModelAndView getCourse(@ModelAttribute SelCourseDto selCourse, HttpServletRequest request, HttpServletResponse response) {
+        SelCourseDto selCourse1 = selectCourseFace.getById(selCourse.getCourseId());
         return JsonView.dataToJson(selCourse1,response);
 
     }
@@ -53,14 +53,14 @@ public class helloController {
 
     /**
      * 分页获取课程
-     * @param courseDto
+     * @param selCourseDto
      * @param request
      * @param response
      * @return
      */
     @RequestMapping(method = RequestMethod.GET, value = "/getByPagination")
-    public ModelAndView getByPagination(@ModelAttribute CourseDto courseDto, HttpServletRequest request, HttpServletResponse response) {
-        List<SelCourse> courses = selectCourseFace.getByPagination(courseDto);
+    public ModelAndView getByPagination(@ModelAttribute SelCourseDto selCourseDto, HttpServletRequest request, HttpServletResponse response) {
+        List<SelCourseDto> courses = selectCourseFace.getByPagination(selCourseDto);
         return JsonView.dataToJson(courses,response);
 
     }
@@ -73,8 +73,8 @@ public class helloController {
      * @return
      */
     @RequestMapping(method = RequestMethod.POST, value = "/saveSelCourse")
-    public ModelAndView saveCourse(@RequestBody SelCourse selCourse, HttpServletRequest request, HttpServletResponse response) {
-        SelCourse selCourse1 = selectCourseFace.insertSelective(selCourse);
+    public ModelAndView saveCourse(@RequestBody SelCourseDto selCourse, HttpServletRequest request, HttpServletResponse response) {
+        SelCourseDto selCourse1 = selectCourseFace.insertSelective(selCourse);
         return JsonView.dataToJson(selCourse1,response);
 
     }

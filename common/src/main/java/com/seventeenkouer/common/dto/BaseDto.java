@@ -1,11 +1,15 @@
 package com.seventeenkouer.common.dto;
 
+import com.seventeenkouer.common.mapper.BeanMapper;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Collection;
+import java.util.List;
 
 
 /**
@@ -340,5 +344,13 @@ public class BaseDto implements java.io.Serializable {
 
     public void setReqDeptId(String reqDeptId) {
         this.reqDeptId = reqDeptId;
+    }
+
+    protected <T> T toDBEntity(Class<T> clazz) {
+        return BeanMapper.map(this,clazz);
+    }
+
+    protected <T> List<T> toDBEntityList(Collection list,Class<T> clazz) {
+        return BeanMapper.mapList(list,clazz);
     }
 }

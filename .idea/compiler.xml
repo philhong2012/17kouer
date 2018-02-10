@@ -1,50 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <resourceExtensions />
-    <wildcardResourcePatterns>
-      <entry name="!?*.java" />
-      <entry name="!?*.form" />
-      <entry name="!?*.class" />
-      <entry name="!?*.groovy" />
-      <entry name="!?*.scala" />
-      <entry name="!?*.flex" />
-      <entry name="!?*.kt" />
-      <entry name="!?*.clj" />
-      <entry name="!?*.aj" />
-    </wildcardResourcePatterns>
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="false">
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+      <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
         <module name="common" />
         <module name="da" />
         <module name="facade" />
-        <module name="service" />
-      </profile>
-      <profile default="false" name="Annotation profile for selweb" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
         <module name="selweb" />
+        <module name="service" />
+        <module name="webui" />
+        <module name="wei-app" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="17kouer" target="1.5" />
-      <module name="common" target="1.5" />
+      <module name="common" target="1.7" />
       <module name="da" target="1.5" />
-      <module name="facade" target="1.5" />
+      <module name="facade" target="1.6" />
       <module name="meetrun-spring" target="1.8" />
       <module name="meetrun-web" target="1.5" />
       <module name="sel" target="1.5" />
       <module name="selweb" target="1.7" />
       <module name="service" target="1.5" />
+      <module name="webui" target="1.7" />
+      <module name="wei-app" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

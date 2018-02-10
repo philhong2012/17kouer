@@ -8,6 +8,8 @@
       <module fileurl="file://$PROJECT_DIR$/facade/facade.iml" filepath="$PROJECT_DIR$/facade/facade.iml" />
       <module fileurl="file://$PROJECT_DIR$/sel-web/selweb.iml" filepath="$PROJECT_DIR$/sel-web/selweb.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service.iml" filepath="$PROJECT_DIR$/service/service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-ui/webui.iml" filepath="$PROJECT_DIR$/web-ui/webui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wei-app/wei-app.iml" filepath="$PROJECT_DIR$/wei-app/wei-app.iml" />
     </modules>
   </component>
 </project>

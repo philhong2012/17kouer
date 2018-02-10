@@ -3,7 +3,7 @@ package com.seventeenkouer.facade;
 import com.seventeenkouer.common.mapper.BeanMapper;
 import com.seventeenkouer.da.mapper.SelCourseMapper;
 import com.seventeenkouer.da.model.SelCourse;
-import com.seventeenkouer.facade.dto.CourseDto;
+import com.seventeenkouer.facade.dto.SelCourseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.seventeenkouer.common.mybatis.page.Page;
@@ -21,29 +21,35 @@ public class SelectCourseFaceImpl implements SelectCourseFace {
     @Autowired
     SelCourseMapper selCourseMapper;
 
-    public SelCourse getById(String courseId) {
-        return selCourseMapper.selectByPrimaryKey(courseId);
+    @Override
+    public SelCourseDto getById(String courseId) {
+        SelCourse selCourse = selCourseMapper.selectByPrimaryKey(courseId);
+        return BeanMapper.map(selCourse,SelCourseDto.class);
     }
 
-    public SelCourse insertSelective(SelCourse selCourse) {
-        if(selCourse != null) {
+    @Override
+    public SelCourseDto insertSelective(SelCourseDto selCourseDto) {
+        SelCourse toInsert = BeanMapper.map(selCourseDto,SelCourse.class);
+        if(toInsert != null) {
 //            selCourse.setCreatedBy("tester");
             Long curTime = System.currentTimeMillis();
-            selCourse.setCourseId(UUID.randomUUID().toString());
-            selCourse.setUpdateTime(curTime);
-            selCourse.setCreatedTime(curTime);
-            selCourseMapper.insertSelective(selCourse);
+            toInsert.setCourseId(UUID.randomUUID().toString());
+            toInsert.setUpdateTime(curTime);
+            toInsert.setCreatedTime(curTime);
+            selCourseMapper.insertSelective(toInsert);
         }
 
-        return selCourse;
+        return selCourseDto;
     }
 
-    public List<SelCourse> getByPagination(CourseDto courseDto) {
-        Page page = new Page(courseDto.getCurrentPage(),courseDto.getPageSize());
+    @Override
+    public List<SelCourseDto> getByPagination(SelCourseDto selCourseDto) {
+        Page page = new Page(selCourseDto.getCurrentPage(), selCourseDto.getPageSize());
         Map<String, Object> params = new HashMap<String, Object>();
-        Map params2 = BeanMapper.map(courseDto,Map.class);
+        Map params2 = BeanMapper.map(selCourseDto,Map.class);
         params.put("page",page);
         params.putAll(params2);
-        return selCourseMapper.selectByPagination(params);
+        List<SelCourse> list = selCourseMapper.selectByPagination(params);
+        return BeanMapper.mapList(list,SelCourseDto.class);
     }
 }

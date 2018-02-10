@@ -1,9 +1,12 @@
-package com.seventeenkouer.dto;
+package com.seventeenkouer.facade.dto;
+
+import com.seventeenkouer.common.dto.BaseDto;
 
 /**
- * Created by wind on 17/4/27.
+ * Created by wind on 17/4/8.
  */
-public class SelCourseDto {
+public class SelCourseDto extends BaseDto {
+
     /**
      *
      */
@@ -45,7 +48,6 @@ public class SelCourseDto {
     private Boolean delFlag;
 
     /**
-     *
      * @return courseId
      */
     public String getCourseId() {
@@ -53,7 +55,6 @@ public class SelCourseDto {
     }
 
     /**
-     *
      * @param courseId
      */
     public void setCourseId(String courseId) {
@@ -61,7 +62,6 @@ public class SelCourseDto {
     }
 
     /**
-     *
      * @return courseName
      */
     public String getCourseName() {
@@ -69,7 +69,6 @@ public class SelCourseDto {
     }
 
     /**
-     *
      * @param courseName
      */
     public void setCourseName(String courseName) {
@@ -77,7 +76,6 @@ public class SelCourseDto {
     }
 
     /**
-     *
      * @return courseCode
      */
     public String getCourseCode() {
@@ -85,7 +83,6 @@ public class SelCourseDto {
     }
 
     /**
-     *
      * @param courseCode
      */
     public void setCourseCode(String courseCode) {
@@ -93,7 +90,6 @@ public class SelCourseDto {
     }
 
     /**
-     *
      * @return createdTime
      */
     public Long getCreatedTime() {
@@ -101,7 +97,6 @@ public class SelCourseDto {
     }
 
     /**
-     *
      * @param createdTime
      */
     public void setCreatedTime(Long createdTime) {
@@ -109,7 +104,6 @@ public class SelCourseDto {
     }
 
     /**
-     *
      * @return updateTime
      */
     public Long getUpdateTime() {
@@ -117,7 +111,6 @@ public class SelCourseDto {
     }
 
     /**
-     *
      * @param updateTime
      */
     public void setUpdateTime(Long updateTime) {
@@ -125,7 +118,6 @@ public class SelCourseDto {
     }
 
     /**
-     *
      * @return createdBy
      */
     public String getCreatedBy() {
@@ -133,7 +125,6 @@ public class SelCourseDto {
     }
 
     /**
-     *
      * @param createdBy
      */
     public void setCreatedBy(String createdBy) {
@@ -141,7 +132,6 @@ public class SelCourseDto {
     }
 
     /**
-     *
      * @return updatedBy
      */
     public String getUpdatedBy() {
@@ -149,7 +139,6 @@ public class SelCourseDto {
     }
 
     /**
-     *
      * @param updatedBy
      */
     public void setUpdatedBy(String updatedBy) {
@@ -157,7 +146,6 @@ public class SelCourseDto {
     }
 
     /**
-     *
      * @return delFlag
      */
     public Boolean getDelFlag() {
@@ -165,7 +153,6 @@ public class SelCourseDto {
     }
 
     /**
-     *
      * @param delFlag
      */
     public void setDelFlag(Boolean delFlag) {

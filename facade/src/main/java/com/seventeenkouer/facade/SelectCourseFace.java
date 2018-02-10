@@ -1,16 +1,31 @@
 package com.seventeenkouer.facade;
 
-import com.seventeenkouer.da.model.SelCourse;
-import com.seventeenkouer.facade.dto.CourseDto;
+import com.seventeenkouer.facade.dto.SelCourseDto;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by wind on 17/4/5.
  */
 public interface SelectCourseFace {
-    SelCourse getById(String courseId);
-    SelCourse insertSelective(SelCourse selCourse);
-    List<SelCourse> getByPagination(CourseDto courseDto);
+    /**
+     *
+     * @param courseId
+     * @return
+     */
+    SelCourseDto getById(String courseId);
+
+    /**
+     *
+     * @param selCourseDto
+     * @return
+     */
+    SelCourseDto insertSelective(SelCourseDto selCourseDto);
+
+    /**
+     *
+     * @param selCourseDto
+     * @return
+     */
+    List<SelCourseDto> getByPagination(SelCourseDto selCourseDto);
 }

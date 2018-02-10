@@ -1,6 +1,7 @@
 package com.seventeenkouer.facade;
 
 import com.seventeenkouer.da.model.SelCourse;
+import com.seventeenkouer.facade.dto.SelCourseDto;
 import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,13 +20,13 @@ public class SelectCourseFaceImplTest extends TestCase {
     SelectCourseFace selectCourseFace;
     @Test
     public void testGetById() {
-        SelCourse selCourse = selectCourseFace.getById("e0b408a0-db7e-43e9-b0cd-c57010ed8174");
+        SelCourseDto selCourse = selectCourseFace.getById("e0b408a0-db7e-43e9-b0cd-c57010ed8174");
         Assert.assertTrue(selCourse != null);
     }
 
     @Test
     public void testInsertSelective() {
-        SelCourse selCourse = new SelCourse();
+        SelCourseDto selCourse = new SelCourseDto();
         selCourse.setCourseName("test");
         selCourse.setCourseCode("code");
         selCourse.setCreatedBy("tester");

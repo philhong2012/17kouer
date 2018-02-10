@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index html</title>
+</head>
+<body>
+中文乱码吗？
+关于编码
+<ul>
+    <li>1、html页面 配置charset="utf-8" 即可</li>
+    <li>2、jsp页面在文件头部增加命令 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%></li>
+    <li>3、对于请求request参数或者respons返回内容，在web.xml中配置如下过滤器:<br />
+
+        &lt;!--utf8编码--&gt;<br />
+        &lt;filter&gt;<br />
+        &lt;filter-name&gt;encodingFilter&lt;/filter-name&gt;<br />
+        &lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;<br />
+        &lt;init-param&gt;<br />
+        &lt;param-name&gt;encoding&lt;/param-name&gt;<br />
+        &lt;param-value&gt;UTF-8&lt;/param-value&gt;<br />
+        &lt;/init-param&gt;<br />
+        &lt;init-param&gt;<br />
+        &lt;param-name&gt;forceEncoding&lt;/param-name&gt;<br />
+        &lt;param-value&gt;true&lt;/param-value&gt;<br />
+        &lt;/init-param&gt;<br />
+        &lt;/filter&gt;<br />
+        &lt;filter-mapping&gt;<br />
+        &lt;filter-name&gt;encodingFilter&lt;/filter-name&gt;<br />
+        &lt;url-pattern&gt;/*&lt;/url-pattern&gt;<br />
+        &lt;/filter-mapping&gt;<br />
+    </li>
+</ul>
+
+
+
+
+
+
+
+</body>
+</html>
