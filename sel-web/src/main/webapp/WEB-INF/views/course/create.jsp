@@ -31,7 +31,9 @@
         })
             .done(function( msg ) {
                 //alert( "Data Saved: " + msg );
-                console.log("save completed")
+                if(msg.code === '001') {
+                    console.log("save completed")
+                }
             });
     }
 

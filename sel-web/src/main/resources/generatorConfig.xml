@@ -50,7 +50,7 @@
                enableCountByExample="false"
                enableUpdateByExample="false"
                selectByExampleQueryId="false">
-            <property  name="useActualColumnNames" value="true" />
+            <property  name="useActualColumnNames" value="false" />
         </table>
         <table tableName="t_sel_attachment"
                domainObjectName="Attachment"
@@ -59,7 +59,7 @@
                enableCountByExample="false"
                enableUpdateByExample="false"
                selectByExampleQueryId="false">
-            <property  name="useActualColumnNames" value="true" />
+            <property  name="useActualColumnNames" value="false" />
         </table>
     </context>
 </generatorConfiguration>

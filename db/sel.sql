@@ -107,5 +107,7 @@ create table t_sel_user
 
 alter table t_sel_user comment '用户';
 
+insert into t_sel_user(id,name,password,login_name) VALUE ('1','admin','c4ca4238a0b923820dcc509a6f75849b','admin');
+
 
 
