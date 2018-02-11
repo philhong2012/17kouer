@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.seventeenkouer.da.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.seventeenkouer.da.model.User" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="TINYINT" />
+    <result column="login_name" property="login_name" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="create_id" property="create_id" jdbcType="VARCHAR" />
+    <result column="create_time" property="create_time" jdbcType="BIGINT" />
+    <result column="update_id" property="update_id" jdbcType="VARCHAR" />
+    <result column="update_time" property="update_time" jdbcType="BIGINT" />
+    <result column="del_flag" property="del_flag" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, sex, login_name, password, email, create_id, create_time, update_id, update_time,
+    del_flag
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from t_sel_user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_sel_user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.seventeenkouer.da.model.User" >
+    insert into t_sel_user (id, name, sex,
+      login_name, password, email,
+      create_id, create_time, update_id,
+      update_time, del_flag)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT},
+      #{login_name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR},
+      #{create_id,jdbcType=VARCHAR}, #{create_time,jdbcType=BIGINT}, #{update_id,jdbcType=VARCHAR},
+      #{update_time,jdbcType=BIGINT}, #{del_flag,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.seventeenkouer.da.model.User" >
+    insert into t_sel_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="login_name != null" >
+        login_name,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="create_id != null" >
+        create_id,
+      </if>
+      <if test="create_time != null" >
+        create_time,
+      </if>
+      <if test="update_id != null" >
+        update_id,
+      </if>
+      <if test="update_time != null" >
+        update_time,
+      </if>
+      <if test="del_flag != null" >
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="login_name != null" >
+        #{login_name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="create_id != null" >
+        #{create_id,jdbcType=VARCHAR},
+      </if>
+      <if test="create_time != null" >
+        #{create_time,jdbcType=BIGINT},
+      </if>
+      <if test="update_id != null" >
+        #{update_id,jdbcType=VARCHAR},
+      </if>
+      <if test="update_time != null" >
+        #{update_time,jdbcType=BIGINT},
+      </if>
+      <if test="del_flag != null" >
+        #{del_flag,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.seventeenkouer.da.model.User" >
+    update t_sel_user
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=TINYINT},
+      </if>
+      <if test="login_name != null" >
+        login_name = #{login_name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="create_id != null" >
+        create_id = #{create_id,jdbcType=VARCHAR},
+      </if>
+      <if test="create_time != null" >
+        create_time = #{create_time,jdbcType=BIGINT},
+      </if>
+      <if test="update_id != null" >
+        update_id = #{update_id,jdbcType=VARCHAR},
+      </if>
+      <if test="update_time != null" >
+        update_time = #{update_time,jdbcType=BIGINT},
+      </if>
+      <if test="del_flag != null" >
+        del_flag = #{del_flag,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.seventeenkouer.da.model.User" >
+    update t_sel_user
+    set name = #{name,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=TINYINT},
+      login_name = #{login_name,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      create_id = #{create_id,jdbcType=VARCHAR},
+      create_time = #{create_time,jdbcType=BIGINT},
+      update_id = #{update_id,jdbcType=VARCHAR},
+      update_time = #{update_time,jdbcType=BIGINT},
+      del_flag = #{del_flag,jdbcType=TINYINT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectByLoginNameAndPassword" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from t_sel_user
+    where login_name = #{loginName,jdbcType=VARCHAR} and password=#{password,jdbcType=VARCHAR}
+  </select>
+</mapper>
