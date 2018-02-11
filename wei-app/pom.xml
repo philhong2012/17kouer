@@ -103,30 +103,6 @@
                 <env>test</env>
             </properties>
         </profile>
-        <profile>
-            <id>demo</id>
-            <properties>
-                <env>demo</env>
-            </properties>
-        </profile>
-        <profile>
-            <id>jushiben</id>
-            <properties>
-                <env>jushiben</env>
-            </properties>
-        </profile>
-        <profile>
-            <id>juju</id>
-            <properties>
-                <env>juju</env>
-            </properties>
-        </profile>
-        <profile>
-            <id>zdpm</id>
-            <properties>
-                <env>zdpm</env>
-            </properties>
-        </profile>
     </profiles>
 
 

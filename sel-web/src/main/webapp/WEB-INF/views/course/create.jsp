@@ -5,8 +5,7 @@
     <%--<meta http-equiv="content-type" content="charset=utf-8">--%>
     <title>create course</title>
 </head>
-<script type="text/javascript" src="../js/jquery-3.2.1.min.js">
-</script>
+<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
 <body>
   <input type="text" name="courseName" >
 
