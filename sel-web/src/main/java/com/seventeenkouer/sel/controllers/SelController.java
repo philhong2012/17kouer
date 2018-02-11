@@ -78,6 +78,8 @@ public class SelController {
                             out.write(buffer, 0, len);
                         }
 
+                        //IOUtils.copy(in,out);
+
                     } catch (IOException ex) {
                         ex.printStackTrace();
                         return JsonView.addErrorToJson(ResultCode.ERROR,response);

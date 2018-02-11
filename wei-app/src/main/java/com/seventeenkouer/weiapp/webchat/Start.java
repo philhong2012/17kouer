@@ -21,6 +21,7 @@ public class Start extends HttpServlet {
     //token
     private final String token = "17kouer";
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("开始签名校验");
         String signature = request.getParameter("signature");
@@ -33,6 +34,7 @@ public class Start extends HttpServlet {
         }
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8"); //设置输出编码格式

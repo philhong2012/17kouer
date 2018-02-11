@@ -6,11 +6,11 @@
 <generatorConfiguration>
 
     <!-- 配置文件路径 -->
-    <properties url="file:////Users/wind/work/code/17kouer/sel-web/src/main/resources/codeGen.properties"/>
-
+    <!--<properties url="file:////Users/wind/work/code/17kouer/sel-web/src/main/resources/codeGen.properties"/>-->
+    <properties url="file:///e:\17kouer\sel-web\src\main\resources\codeGen.properties" />
     <!--数据库驱动包路径 -->
-    <classPathEntry location="/Users/wind/work/developtools/mybatis_generate/mysql-connector-java-5.1.25.jar"/>
-
+    <!--<classPathEntry location="/Users/wind/work/developtools/mybatis_generate/mysql-connector-java-5.1.25.jar"/>-->
+    <classPathEntry location="D:\mybatis_generate\mysql-connector-java-5.1.25.jar"/>
     <context id="MySQLTables" targetRuntime="MyBatis3" >
         <property name="javaFileEncoding" value="UTF-8"/>
         <!--关闭注释 -->
@@ -42,9 +42,18 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <!--对应数据库表名 -->
-        <table tableName="t_sel_course"
-               domainObjectName="SelCourse"
+        <!--表、实体名同步修改 -->
+        <table tableName="t_sel_user"
+               domainObjectName="User"
+               enableSelectByExample="false"
+               enableDeleteByExample="false"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               selectByExampleQueryId="false">
+            <property  name="useActualColumnNames" value="true" />
+        </table>
+        <table tableName="t_sel_attachment"
+               domainObjectName="Attachment"
                enableSelectByExample="false"
                enableDeleteByExample="false"
                enableCountByExample="false"
