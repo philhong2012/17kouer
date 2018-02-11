@@ -4,6 +4,7 @@ import com.seventeenkouer.common.constants.ResultCode;
 import com.seventeenkouer.common.web.JsonView;
 import com.seventeenkouer.facade.SelectCourseFace;
 import com.seventeenkouer.facade.dto.SelCourseDto;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -56,20 +57,22 @@ public class SelController {
             for (MultipartFile file : files) {
 
                 if (!file.isEmpty()) {
+                    OutputStream out = null;
+                    InputStream in = null;
                     try {
                         String fileName = file.getOriginalFilename();
                         long sizeInBytes = file.getSize();
                         System.out.println(fileName);
                         System.out.println(sizeInBytes);
 
-                        InputStream in = file.getInputStream();
+                        in = file.getInputStream();
                         byte[] buffer = new byte[1024];
                         int len = 0;
                         //文件最终上传的位置
                         fileName = "e:\\uploadfiles\\" + fileName;
 
                         System.out.println(fileName);
-                        OutputStream out = new FileOutputStream(fileName);
+                         out = new FileOutputStream(fileName);
 
                         while ((len = in.read(buffer)) != -1) {
                             out.write(buffer, 0, len);
@@ -78,6 +81,9 @@ public class SelController {
                     } catch (IOException ex) {
                         ex.printStackTrace();
                         return JsonView.addErrorToJson(ResultCode.ERROR,response);
+                    } finally {
+                        IOUtils.closeQuietly(in);
+                        IOUtils.closeQuietly(out);
                     }
                 }
 
