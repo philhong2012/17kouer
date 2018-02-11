@@ -10,6 +10,7 @@
 <head>
     <title>登录页</title>
     <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../js/md5.min.js"></script>
 </head>
 <body>
 用户名：<input type="text" name="loginName" /> <br/>
@@ -23,6 +24,7 @@
             user[e.name] = e.value;
         });
         user.createdBy = "phil";
+        user.password = md5(user.password);
 
         $.ajax({
             method: "POST",

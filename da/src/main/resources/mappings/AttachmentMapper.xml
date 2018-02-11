@@ -174,4 +174,5 @@
       del_flag = #{delFlag,jdbcType=TINYINT}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+
 </mapper>

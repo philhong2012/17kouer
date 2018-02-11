@@ -25,7 +25,7 @@ public class UserDto {
     /**
      * 登录名
      */
-    private String login_name;
+    private String loginName;
 
     /**
      * 密码
@@ -40,27 +40,27 @@ public class UserDto {
     /**
      * 创建人
      */
-    private String create_id;
+    private String createId;
 
     /**
      * 创建时间
      */
-    private Long create_time;
+    private Long createTime;
 
     /**
      * 修改人
      */
-    private String update_id;
+    private String updateId;
 
     /**
      * 修改时间
      */
-    private Long update_time;
+    private Long updateTime;
 
     /**
      * 删除标志: 1 删除 0 （默认）未删除
      */
-    private Byte del_flag;
+    private Byte delFlag;
 
     /**
      * id
@@ -114,16 +114,16 @@ public class UserDto {
      * 登录名
      * @return login_name 登录名
      */
-    public String getLogin_name() {
-        return login_name;
+    public String getLoginName() {
+        return loginName;
     }
 
     /**
      * 登录名
-     * @param login_name 登录名
+     * @param loginName 登录名
      */
-    public void setLogin_name(String login_name) {
-        this.login_name = login_name == null ? null : login_name.trim();
+    public void setLoginName(String loginName) {
+        this.loginName = loginName == null ? null : loginName.trim();
     }
 
     /**
@@ -162,79 +162,79 @@ public class UserDto {
      * 创建人
      * @return create_id 创建人
      */
-    public String getCreate_id() {
-        return create_id;
+    public String getCreateId() {
+        return createId;
     }
 
     /**
      * 创建人
-     * @param create_id 创建人
+     * @param createId 创建人
      */
-    public void setCreate_id(String create_id) {
-        this.create_id = create_id == null ? null : create_id.trim();
+    public void setCreateId(String createId) {
+        this.createId = createId == null ? null : createId.trim();
     }
 
     /**
      * 创建时间
      * @return create_time 创建时间
      */
-    public Long getCreate_time() {
-        return create_time;
+    public Long getCreateTime() {
+        return createTime;
     }
 
     /**
      * 创建时间
-     * @param create_time 创建时间
+     * @param createTime 创建时间
      */
-    public void setCreate_time(Long create_time) {
-        this.create_time = create_time;
+    public void setCreateTime(Long createTime) {
+        this.createTime = createTime;
     }
 
     /**
      * 修改人
      * @return update_id 修改人
      */
-    public String getUpdate_id() {
-        return update_id;
+    public String getUpdateId() {
+        return updateId;
     }
 
     /**
      * 修改人
-     * @param update_id 修改人
+     * @param updateId 修改人
      */
-    public void setUpdate_id(String update_id) {
-        this.update_id = update_id == null ? null : update_id.trim();
+    public void setUpdateId(String updateId) {
+        this.updateId = updateId == null ? null : updateId.trim();
     }
 
     /**
      * 修改时间
      * @return update_time 修改时间
      */
-    public Long getUpdate_time() {
-        return update_time;
+    public Long getUpdateTime() {
+        return updateTime;
     }
 
     /**
      * 修改时间
-     * @param update_time 修改时间
+     * @param updateTime 修改时间
      */
-    public void setUpdate_time(Long update_time) {
-        this.update_time = update_time;
+    public void setUpdateTime(Long updateTime) {
+        this.updateTime = updateTime;
     }
 
     /**
      * 删除标志: 1 删除 0 （默认）未删除
      * @return del_flag 删除标志: 1 删除 0 （默认）未删除
      */
-    public Byte getDel_flag() {
-        return del_flag;
+    public Byte getDelFlag() {
+        return delFlag;
     }
 
     /**
      * 删除标志: 1 删除 0 （默认）未删除
-     * @param del_flag 删除标志: 1 删除 0 （默认）未删除
+     * @param delFlag 删除标志: 1 删除 0 （默认）未删除
      */
-    public void setDel_flag(Byte del_flag) {
-        this.del_flag = del_flag;
+    public void setDelFlag(Byte delFlag) {
+        this.delFlag = delFlag;
     }
 }

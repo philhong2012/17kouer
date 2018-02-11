@@ -21,7 +21,7 @@ public class BaseCode {
     /**
      * 成功返回码表值
      */
-    public final static String SUCCESS_CODE = "1";// 成功返回码表值
+    public final static String SUCCESS_CODE = "001";// 成功返回码表值
 
     //1开头为调用接口类异常
     /**

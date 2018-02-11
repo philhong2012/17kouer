@@ -11,10 +11,6 @@
     <title>Title</title>
 
 
-    <style>
-        #filePicker div:nth-child(2){width:100%!important;height:100%!important;}
-    </style>
-
     <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
 
     <!--引入CSS-->

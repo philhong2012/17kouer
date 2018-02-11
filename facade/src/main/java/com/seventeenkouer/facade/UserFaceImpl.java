@@ -21,7 +21,7 @@ public class UserFaceImpl implements UserFace {
     @Override
     public void login(UserDto userDto) {
         //todo:参数空判断，引入什么来做这个事情呢？
-        User dbUser = userMapper.selectByLoginNameAndPassword(userDto.getLogin_name(),userDto.getPassword());
+        User dbUser = userMapper.selectByLoginNameAndPassword(userDto.getLoginName(),userDto.getPassword());
         if(dbUser == null) {
             throw new SeventeenkouException(ResultCode.LOGIN_FAILED);
         }
