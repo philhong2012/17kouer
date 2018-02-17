@@ -73,7 +73,7 @@ public class SelController {
                         byte[] buffer = new byte[1024];
                         int len = 0;
                         //文件最终上传的位置
-                        fileName = getUploadUrl() + fileName;
+                        fileName = uploadUrl + fileName;
 
                         System.out.println(fileName);
                          out = new FileOutputStream(fileName);
@@ -110,11 +110,5 @@ public class SelController {
         return new ModelAndView("/course/list",model);
     }
 
-    public String getUploadUrl() {
-        return uploadUrl;
-    }
 
-    public void setUploadUrl(String uploadUrl) {
-        this.uploadUrl = uploadUrl;
-    }
 }
