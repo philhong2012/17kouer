@@ -82,6 +82,15 @@
             </properties>
         </profile>
         <profile>
+            <id>dev-home</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <env>dev-home</env>
+            </properties>
+        </profile>
+        <profile>
             <id>test</id>
             <properties>
                 <env>test</env>

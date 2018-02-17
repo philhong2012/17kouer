@@ -10,6 +10,7 @@ public class ToDoList {
     //todo: 图片展示功能
     //todo: 将controller一层独立出去做网关，前后端完全分离，考虑如何为移动端提供api
     //todo：与前端联调特别耗时间，如何优化呢
+    //todo: activiti 同一个节点产生多个任务,多线程测试并行完成任务时,引擎报错
 
 
 }
