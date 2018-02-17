@@ -6,6 +6,7 @@ import com.seventeenkouer.facade.SelectCourseFace;
 import com.seventeenkouer.facade.dto.SelCourseDto;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,9 @@ import java.util.Map;
 @Controller
 @RequestMapping("/course")
 public class SelController {
+    @Value("${upload.url}")
+    private String uploadUrl;
+
     @Autowired
     private SelectCourseFace selectCourseFace;
 
@@ -69,7 +73,7 @@ public class SelController {
                         byte[] buffer = new byte[1024];
                         int len = 0;
                         //文件最终上传的位置
-                        fileName = "e:\\uploadfiles\\" + fileName;
+                        fileName = getUploadUrl() + fileName;
 
                         System.out.println(fileName);
                          out = new FileOutputStream(fileName);
@@ -104,5 +108,13 @@ public class SelController {
         Map<String,Object> model = new HashMap<>();
         model.put("list",selCourse1);
         return new ModelAndView("/course/list",model);
+    }
+
+    public String getUploadUrl() {
+        return uploadUrl;
+    }
+
+    public void setUploadUrl(String uploadUrl) {
+        this.uploadUrl = uploadUrl;
     }
 }

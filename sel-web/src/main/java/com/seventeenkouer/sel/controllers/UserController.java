@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * ${DESCRIPTION}
@@ -27,9 +29,10 @@ public class UserController {
     UserFace userFace;
 
     @RequestMapping(method = RequestMethod.POST, value = "/validate")
-    public ModelAndView validate(@RequestBody UserDto userDto,HttpServletResponse response) {
+    public ModelAndView validate(@RequestBody UserDto userDto, HttpServletRequest request,HttpServletResponse response) {
         try {
             userFace.login(userDto);
+            request.getSession().setAttribute("username",userDto.getLoginName());
         } catch (Exception e) {
             e.printStackTrace();
             return JsonView.addErrorToJson(ResultCode.ERROR,response);

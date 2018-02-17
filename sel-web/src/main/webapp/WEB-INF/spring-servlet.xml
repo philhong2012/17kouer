@@ -37,4 +37,15 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 
 
 
+    <!-- 拦截器 -->
+    <mvc:interceptors>
+        <!-- 多个拦截器，顺序执行 -->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.seventeenkouer.sel.interceptors.LoginInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
+
 </beans>
