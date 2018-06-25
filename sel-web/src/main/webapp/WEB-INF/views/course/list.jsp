@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>Title</title>
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 <a href="/course/create">create</a>
@@ -19,6 +20,28 @@
 
 </c:forEach>
 </ul>
-
+<input type="button" value="获取课程列表" onclick="getCourseList();">
 </body>
+<script type="text/javascript">
+    function getCourseList() {
+
+        $.ajax({
+                    method: "POST",
+                    url: "/course/list2",
+                    data:null,
+                    dataType:'json',
+                    contentType: "application/json; charset=utf-8"
+                })
+                .done(function( msg ) {
+                    if(msg.code === '001') {
+                        //console.log("login completed");
+                    } else {
+                        //console.log("login failed");
+                    }
+                }).fail(function (msg) {
+            console.log("login name or password error");
+        });
+    }
+
+</script>
 </html>

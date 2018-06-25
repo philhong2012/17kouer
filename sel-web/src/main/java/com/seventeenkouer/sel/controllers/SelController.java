@@ -2,6 +2,7 @@ package com.seventeenkouer.sel.controllers;
 
 import com.seventeenkouer.common.constants.ResultCode;
 import com.seventeenkouer.common.web.JsonView;
+import com.seventeenkouer.da.model.SelCourse;
 import com.seventeenkouer.facade.SelectCourseFace;
 import com.seventeenkouer.facade.dto.SelCourseDto;
 import org.apache.commons.io.IOUtils;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -110,5 +112,13 @@ public class SelController {
         return new ModelAndView("/course/list",model);
     }
 
+
+    @RequestMapping("/list2")
+    @ResponseBody
+    public List<SelCourseDto> getCourses2(HttpServletRequest request, HttpServletResponse response) {
+        SelCourseDto queryParam = new SelCourseDto();
+        List<SelCourseDto> selCourse1 = selectCourseFace.getByPagination(queryParam);
+        return selCourse1;
+    }
 
 }

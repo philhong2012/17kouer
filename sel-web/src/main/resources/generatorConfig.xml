@@ -6,11 +6,11 @@
 <generatorConfiguration>
 
     <!-- 配置文件路径 -->
-    <!--<properties url="file:////Users/wind/work/code/17kouer/sel-web/src/main/resources/codeGen.properties"/>-->
-    <properties url="file:///e:\17kouer\sel-web\src\main\resources\codeGen.properties" />
+    <properties url="file:////Users/wind/work/17kouer/sel-web/src/main/resources/codeGen.properties"/>
+    <!--<properties url="file:///e:\17kouer\sel-web\src\main\resources\codeGen.properties" />-->
     <!--数据库驱动包路径 -->
     <!--<classPathEntry location="/Users/wind/work/developtools/mybatis_generate/mysql-connector-java-5.1.25.jar"/>-->
-    <classPathEntry location="D:\mybatis_generate\mysql-connector-java-5.1.25.jar"/>
+    <classPathEntry location="/Users/wind/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/6.4.0.jre7/mssql-jdbc-6.4.0.jre7.jar"/>
     <context id="MySQLTables" targetRuntime="MyBatis3" >
         <property name="javaFileEncoding" value="UTF-8"/>
         <!--关闭注释 -->
@@ -43,8 +43,8 @@
         </javaClientGenerator>
 
         <!--表、实体名同步修改 -->
-        <table tableName="t_sel_user"
-               domainObjectName="User"
+        <table tableName="b_drug_info"
+               domainObjectName="DrugInfo"
                enableSelectByExample="false"
                enableDeleteByExample="false"
                enableCountByExample="false"
@@ -52,8 +52,8 @@
                selectByExampleQueryId="false">
             <property  name="useActualColumnNames" value="false" />
         </table>
-        <table tableName="t_sel_attachment"
-               domainObjectName="Attachment"
+        <table tableName="sys_user"
+               domainObjectName="SysUser"
                enableSelectByExample="false"
                enableDeleteByExample="false"
                enableCountByExample="false"

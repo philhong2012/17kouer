@@ -73,9 +73,18 @@
 
     <profiles>
         <profile>
-            <id>dev</id>
+            <id>minipro-dev</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <env>minipro-dev</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <env>dev</env>
@@ -84,7 +93,7 @@
         <profile>
             <id>dev-home</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <env>dev-home</env>

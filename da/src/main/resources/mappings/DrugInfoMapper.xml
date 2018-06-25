@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.seventeenkouer.da.mapper.DrugInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.seventeenkouer.da.model.DrugInfo" >
+    <id column="cid" property="cid" jdbcType="INTEGER" />
+    <result column="cname" property="cname" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="made_fac" property="madeFac" jdbcType="VARCHAR" />
+    <result column="drug_bcode" property="drugBcode" jdbcType="VARCHAR" />
+    <result column="drup_code" property="drupCode" jdbcType="VARCHAR" />
+    <result column="drup_numb" property="drupNumb" jdbcType="VARCHAR" />
+    <result column="emph_flag" property="emphFlag" jdbcType="VARCHAR" />
+    <result column="spec" property="spec" jdbcType="VARCHAR" />
+    <result column="tran_rate" property="tranRate" jdbcType="DECIMAL" />
+    <result column="jix" property="jix" jdbcType="VARCHAR" />
+    <result column="made_fact" property="madeFact" jdbcType="VARCHAR" />
+    <result column="made_permit" property="madePermit" jdbcType="VARCHAR" />
+    <result column="createname" property="createname" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updatename" property="updatename" jdbcType="VARCHAR" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="zbcname" property="zbcname" jdbcType="VARCHAR" />
+    <result column="pack_unit" property="packUnit" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    cid, cname, price, type, made_fac, drug_bcode, drup_code, drup_numb, emph_flag, spec, 
+    tran_rate, jix, made_fact, made_permit, createname, createtime, updatename, updatetime, 
+    sort, zbcname, pack_unit
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from b_drug_info
+    where cid = #{cid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from b_drug_info
+    where cid = #{cid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.seventeenkouer.da.model.DrugInfo" >
+    insert into b_drug_info (cid, cname, price, 
+      type, made_fac, drug_bcode, 
+      drup_code, drup_numb, emph_flag, 
+      spec, tran_rate, jix, 
+      made_fact, made_permit, createname, 
+      createtime, updatename, updatetime, 
+      sort, zbcname, pack_unit
+      )
+    values (#{cid,jdbcType=INTEGER}, #{cname,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+      #{type,jdbcType=VARCHAR}, #{madeFac,jdbcType=VARCHAR}, #{drugBcode,jdbcType=VARCHAR}, 
+      #{drupCode,jdbcType=VARCHAR}, #{drupNumb,jdbcType=VARCHAR}, #{emphFlag,jdbcType=VARCHAR}, 
+      #{spec,jdbcType=VARCHAR}, #{tranRate,jdbcType=DECIMAL}, #{jix,jdbcType=VARCHAR}, 
+      #{madeFact,jdbcType=VARCHAR}, #{madePermit,jdbcType=VARCHAR}, #{createname,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatename,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{sort,jdbcType=INTEGER}, #{zbcname,jdbcType=VARCHAR}, #{packUnit,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.seventeenkouer.da.model.DrugInfo" >
+    insert into b_drug_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cid != null" >
+        cid,
+      </if>
+      <if test="cname != null" >
+        cname,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="madeFac != null" >
+        made_fac,
+      </if>
+      <if test="drugBcode != null" >
+        drug_bcode,
+      </if>
+      <if test="drupCode != null" >
+        drup_code,
+      </if>
+      <if test="drupNumb != null" >
+        drup_numb,
+      </if>
+      <if test="emphFlag != null" >
+        emph_flag,
+      </if>
+      <if test="spec != null" >
+        spec,
+      </if>
+      <if test="tranRate != null" >
+        tran_rate,
+      </if>
+      <if test="jix != null" >
+        jix,
+      </if>
+      <if test="madeFact != null" >
+        made_fact,
+      </if>
+      <if test="madePermit != null" >
+        made_permit,
+      </if>
+      <if test="createname != null" >
+        createname,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="updatename != null" >
+        updatename,
+      </if>
+      <if test="updatetime != null" >
+        updatetime,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="zbcname != null" >
+        zbcname,
+      </if>
+      <if test="packUnit != null" >
+        pack_unit,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cid != null" >
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="cname != null" >
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="madeFac != null" >
+        #{madeFac,jdbcType=VARCHAR},
+      </if>
+      <if test="drugBcode != null" >
+        #{drugBcode,jdbcType=VARCHAR},
+      </if>
+      <if test="drupCode != null" >
+        #{drupCode,jdbcType=VARCHAR},
+      </if>
+      <if test="drupNumb != null" >
+        #{drupNumb,jdbcType=VARCHAR},
+      </if>
+      <if test="emphFlag != null" >
+        #{emphFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="tranRate != null" >
+        #{tranRate,jdbcType=DECIMAL},
+      </if>
+      <if test="jix != null" >
+        #{jix,jdbcType=VARCHAR},
+      </if>
+      <if test="madeFact != null" >
+        #{madeFact,jdbcType=VARCHAR},
+      </if>
+      <if test="madePermit != null" >
+        #{madePermit,jdbcType=VARCHAR},
+      </if>
+      <if test="createname != null" >
+        #{createname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatename != null" >
+        #{updatename,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="zbcname != null" >
+        #{zbcname,jdbcType=VARCHAR},
+      </if>
+      <if test="packUnit != null" >
+        #{packUnit,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.seventeenkouer.da.model.DrugInfo" >
+    update b_drug_info
+    <set >
+      <if test="cname != null" >
+        cname = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="madeFac != null" >
+        made_fac = #{madeFac,jdbcType=VARCHAR},
+      </if>
+      <if test="drugBcode != null" >
+        drug_bcode = #{drugBcode,jdbcType=VARCHAR},
+      </if>
+      <if test="drupCode != null" >
+        drup_code = #{drupCode,jdbcType=VARCHAR},
+      </if>
+      <if test="drupNumb != null" >
+        drup_numb = #{drupNumb,jdbcType=VARCHAR},
+      </if>
+      <if test="emphFlag != null" >
+        emph_flag = #{emphFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null" >
+        spec = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="tranRate != null" >
+        tran_rate = #{tranRate,jdbcType=DECIMAL},
+      </if>
+      <if test="jix != null" >
+        jix = #{jix,jdbcType=VARCHAR},
+      </if>
+      <if test="madeFact != null" >
+        made_fact = #{madeFact,jdbcType=VARCHAR},
+      </if>
+      <if test="madePermit != null" >
+        made_permit = #{madePermit,jdbcType=VARCHAR},
+      </if>
+      <if test="createname != null" >
+        createname = #{createname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatename != null" >
+        updatename = #{updatename,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="zbcname != null" >
+        zbcname = #{zbcname,jdbcType=VARCHAR},
+      </if>
+      <if test="packUnit != null" >
+        pack_unit = #{packUnit,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.seventeenkouer.da.model.DrugInfo" >
+    update b_drug_info
+    set cname = #{cname,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      type = #{type,jdbcType=VARCHAR},
+      made_fac = #{madeFac,jdbcType=VARCHAR},
+      drug_bcode = #{drugBcode,jdbcType=VARCHAR},
+      drup_code = #{drupCode,jdbcType=VARCHAR},
+      drup_numb = #{drupNumb,jdbcType=VARCHAR},
+      emph_flag = #{emphFlag,jdbcType=VARCHAR},
+      spec = #{spec,jdbcType=VARCHAR},
+      tran_rate = #{tranRate,jdbcType=DECIMAL},
+      jix = #{jix,jdbcType=VARCHAR},
+      made_fact = #{madeFact,jdbcType=VARCHAR},
+      made_permit = #{madePermit,jdbcType=VARCHAR},
+      createname = #{createname,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatename = #{updatename,jdbcType=VARCHAR},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      sort = #{sort,jdbcType=INTEGER},
+      zbcname = #{zbcname,jdbcType=VARCHAR},
+      pack_unit = #{packUnit,jdbcType=VARCHAR}
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+</mapper>
