@@ -40,6 +40,16 @@ public class UserController {
         return new ResponseResult(ResultCode.SUCCESS,null);
     }
 
+    @RequestMapping(method = RequestMethod.POST, value = "/login")
+    @ResponseBody
+    public ResponseResult login(@RequestBody SysUser userDto, HttpServletRequest request, HttpServletResponse response) {
+        if (sysUserService.validateUser(userDto.getFloginid(), userDto.getFpassword())) {
+            request.getSession().setAttribute("username", userDto.getFename());
+        }
+
+        return new ResponseResult(ResultCode.SUCCESS,null);
+    }
+
 
     @RequestMapping(method = RequestMethod.GET, value = "/login")
     public ModelAndView login(HttpServletResponse response) {

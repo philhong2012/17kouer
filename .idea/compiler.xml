@@ -11,8 +11,6 @@
         <module name="facade" />
         <module name="selweb" />
         <module name="service" />
-        <module name="webui" />
-        <module name="wei-app" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
