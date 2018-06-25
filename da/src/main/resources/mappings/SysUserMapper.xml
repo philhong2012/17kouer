@@ -256,4 +256,9 @@
       area_name = #{areaName,jdbcType=VARCHAR}
     where fid = #{fid,jdbcType=INTEGER}
   </update>
+
+  <select id="validateUser" resultType="java.lang.Integer" parameterType="java.lang.String">
+    select count(1) from sys_user where floginid = #{account,jdbcType=VARCHAR} and fpassword = #{password,jdbcType=VARCHAR}
+  </select>
+
 </mapper>

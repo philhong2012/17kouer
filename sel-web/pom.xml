@@ -24,6 +24,13 @@
             <version>1.0</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>com.17kouer</groupId>
+            <artifactId>service</artifactId>
+            <version>1.0</version>
+        </dependency>
+
         <dependency>
             <groupId>com.17kouer</groupId>
             <artifactId>da</artifactId>

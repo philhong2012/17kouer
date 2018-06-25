@@ -14,8 +14,8 @@
         <module>da</module>
         <module>facade</module>
         <module>common</module>
-        <module>wei-app</module>
-        <module>web-ui</module>
+      <!--  <module>wei-app</module>
+        <module>web-ui</module>-->
     </modules>
 
 
@@ -73,12 +73,22 @@
 
     <profiles>
         <profile>
-            <id>minipro-dev</id>
+            <id>minipro-dev-home</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <env>minipro-dev</env>
+                <env>minipro-dev-home</env>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>minipro-dev-com</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <env>minipro-dev-com</env>
             </properties>
         </profile>
         <profile>
