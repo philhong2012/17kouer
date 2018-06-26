@@ -43,8 +43,8 @@
         </javaClientGenerator>
 
         <!--表、实体名同步修改 -->
-        <table tableName="b_drug_info"
-               domainObjectName="DrugInfo"
+        <table tableName="b_drugstore_info"
+               domainObjectName="DrugstoreInfo"
                enableSelectByExample="false"
                enableDeleteByExample="false"
                enableCountByExample="false"
@@ -52,8 +52,8 @@
                selectByExampleQueryId="false">
             <property  name="useActualColumnNames" value="false" />
         </table>
-        <table tableName="sys_user"
-               domainObjectName="SysUser"
+        <table tableName="b_drug_numb"
+               domainObjectName="DrugNumb"
                enableSelectByExample="false"
                enableDeleteByExample="false"
                enableCountByExample="false"
@@ -61,5 +61,23 @@
                selectByExampleQueryId="false">
             <property  name="useActualColumnNames" value="false" />
         </table>
-    </context>
+        <table tableName="m_display_info"
+               domainObjectName="DisplayInfo"
+               enableSelectByExample="false"
+               enableDeleteByExample="false"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               selectByExampleQueryId="false">
+            <property  name="useActualColumnNames" value="false" />
+        </table>
+        <table tableName="m_instore_info"
+               domainObjectName="InstoreInfo"
+               enableSelectByExample="false"
+               enableDeleteByExample="false"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               selectByExampleQueryId="false">
+            <property  name="useActualColumnNames" value="false" />
+        </table>
+</context>
 </generatorConfiguration>

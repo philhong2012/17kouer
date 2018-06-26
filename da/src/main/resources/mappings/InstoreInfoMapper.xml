@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.seventeenkouer.da.mapper.InstoreInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.seventeenkouer.da.model.InstoreInfo" >
+    <id column="cid" property="cid" jdbcType="INTEGER" />
+    <result column="ds_code" property="dsCode" jdbcType="VARCHAR" />
+    <result column="ds_code2" property="dsCode2" jdbcType="VARCHAR" />
+    <result column="ds_name" property="dsName" jdbcType="VARCHAR" />
+    <result column="floginid" property="floginid" jdbcType="VARCHAR" />
+    <result column="in_date" property="inDate" jdbcType="TIMESTAMP" />
+    <result column="sfr_name" property="sfrName" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="img_name" property="imgName" jdbcType="VARCHAR" />
+    <result column="createname" property="createname" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updatename" property="updatename" jdbcType="VARCHAR" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="area_code" property="areaCode" jdbcType="VARCHAR" />
+    <result column="area_name" property="areaName" jdbcType="VARCHAR" />
+    <result column="ds_upload" property="dsUpload" jdbcType="TIMESTAMP" />
+    <result column="ds_upload_tag" property="dsUploadTag" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    cid, ds_code, ds_code2, ds_name, floginid, in_date, sfr_name, mobile, img_name, createname, 
+    createtime, updatename, updatetime, sort, area_code, area_name, ds_upload, ds_upload_tag
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from m_instore_info
+    where cid = #{cid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from m_instore_info
+    where cid = #{cid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.seventeenkouer.da.model.InstoreInfo" >
+    insert into m_instore_info (cid, ds_code, ds_code2, 
+      ds_name, floginid, in_date, 
+      sfr_name, mobile, img_name, 
+      createname, createtime, updatename, 
+      updatetime, sort, area_code, 
+      area_name, ds_upload, ds_upload_tag
+      )
+    values (#{cid,jdbcType=INTEGER}, #{dsCode,jdbcType=VARCHAR}, #{dsCode2,jdbcType=VARCHAR}, 
+      #{dsName,jdbcType=VARCHAR}, #{floginid,jdbcType=VARCHAR}, #{inDate,jdbcType=TIMESTAMP}, 
+      #{sfrName,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{imgName,jdbcType=VARCHAR}, 
+      #{createname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatename,jdbcType=VARCHAR}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{sort,jdbcType=INTEGER}, #{areaCode,jdbcType=VARCHAR}, 
+      #{areaName,jdbcType=VARCHAR}, #{dsUpload,jdbcType=TIMESTAMP}, #{dsUploadTag,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.seventeenkouer.da.model.InstoreInfo" >
+    insert into m_instore_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cid != null" >
+        cid,
+      </if>
+      <if test="dsCode != null" >
+        ds_code,
+      </if>
+      <if test="dsCode2 != null" >
+        ds_code2,
+      </if>
+      <if test="dsName != null" >
+        ds_name,
+      </if>
+      <if test="floginid != null" >
+        floginid,
+      </if>
+      <if test="inDate != null" >
+        in_date,
+      </if>
+      <if test="sfrName != null" >
+        sfr_name,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="imgName != null" >
+        img_name,
+      </if>
+      <if test="createname != null" >
+        createname,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="updatename != null" >
+        updatename,
+      </if>
+      <if test="updatetime != null" >
+        updatetime,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="areaCode != null" >
+        area_code,
+      </if>
+      <if test="areaName != null" >
+        area_name,
+      </if>
+      <if test="dsUpload != null" >
+        ds_upload,
+      </if>
+      <if test="dsUploadTag != null" >
+        ds_upload_tag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cid != null" >
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="dsCode != null" >
+        #{dsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dsCode2 != null" >
+        #{dsCode2,jdbcType=VARCHAR},
+      </if>
+      <if test="dsName != null" >
+        #{dsName,jdbcType=VARCHAR},
+      </if>
+      <if test="floginid != null" >
+        #{floginid,jdbcType=VARCHAR},
+      </if>
+      <if test="inDate != null" >
+        #{inDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sfrName != null" >
+        #{sfrName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="imgName != null" >
+        #{imgName,jdbcType=VARCHAR},
+      </if>
+      <if test="createname != null" >
+        #{createname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatename != null" >
+        #{updatename,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaName != null" >
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="dsUpload != null" >
+        #{dsUpload,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dsUploadTag != null" >
+        #{dsUploadTag,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.seventeenkouer.da.model.InstoreInfo" >
+    update m_instore_info
+    <set >
+      <if test="dsCode != null" >
+        ds_code = #{dsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dsCode2 != null" >
+        ds_code2 = #{dsCode2,jdbcType=VARCHAR},
+      </if>
+      <if test="dsName != null" >
+        ds_name = #{dsName,jdbcType=VARCHAR},
+      </if>
+      <if test="floginid != null" >
+        floginid = #{floginid,jdbcType=VARCHAR},
+      </if>
+      <if test="inDate != null" >
+        in_date = #{inDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sfrName != null" >
+        sfr_name = #{sfrName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="imgName != null" >
+        img_name = #{imgName,jdbcType=VARCHAR},
+      </if>
+      <if test="createname != null" >
+        createname = #{createname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatename != null" >
+        updatename = #{updatename,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="areaCode != null" >
+        area_code = #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaName != null" >
+        area_name = #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="dsUpload != null" >
+        ds_upload = #{dsUpload,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dsUploadTag != null" >
+        ds_upload_tag = #{dsUploadTag,jdbcType=BIT},
+      </if>
+    </set>
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.seventeenkouer.da.model.InstoreInfo" >
+    update m_instore_info
+    set ds_code = #{dsCode,jdbcType=VARCHAR},
+      ds_code2 = #{dsCode2,jdbcType=VARCHAR},
+      ds_name = #{dsName,jdbcType=VARCHAR},
+      floginid = #{floginid,jdbcType=VARCHAR},
+      in_date = #{inDate,jdbcType=TIMESTAMP},
+      sfr_name = #{sfrName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      img_name = #{imgName,jdbcType=VARCHAR},
+      createname = #{createname,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatename = #{updatename,jdbcType=VARCHAR},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      sort = #{sort,jdbcType=INTEGER},
+      area_code = #{areaCode,jdbcType=VARCHAR},
+      area_name = #{areaName,jdbcType=VARCHAR},
+      ds_upload = #{dsUpload,jdbcType=TIMESTAMP},
+      ds_upload_tag = #{dsUploadTag,jdbcType=BIT}
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+</mapper>

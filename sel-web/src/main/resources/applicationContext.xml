@@ -45,4 +45,18 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframew
         <property name="mapperLocations" value="classpath*:mappings/*.xml"></property>
     </bean>
 
+
+    <!--spring 线程池-->
+    <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="10" />
+        <property name="keepAliveSeconds" value="20" />
+        <property name="maxPoolSize" value="100" />
+        <property name="queueCapacity" value="50" />
+        <property name="rejectedExecutionHandler">
+            <bean class="java.util.concurrent.ThreadPoolExecutor$CallerRunsPolicy" />
+        </property>
+    </bean>
+
+
+
 </beans>

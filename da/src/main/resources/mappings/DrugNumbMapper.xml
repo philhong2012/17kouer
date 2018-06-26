@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.seventeenkouer.da.mapper.DrugNumbMapper" >
+  <resultMap id="BaseResultMap" type="com.seventeenkouer.da.model.DrugNumb" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="drug_bcode" property="drugBcode" jdbcType="NVARCHAR" />
+    <result column="province_name" property="provinceName" jdbcType="NVARCHAR" />
+    <result column="drug_numb" property="drugNumb" jdbcType="NVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, drug_bcode, province_name, drug_numb
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from b_drug_numb
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from b_drug_numb
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.seventeenkouer.da.model.DrugNumb" >
+    insert into b_drug_numb (id, drug_bcode, province_name, 
+      drug_numb)
+    values (#{id,jdbcType=INTEGER}, #{drugBcode,jdbcType=NVARCHAR}, #{provinceName,jdbcType=NVARCHAR}, 
+      #{drugNumb,jdbcType=NVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.seventeenkouer.da.model.DrugNumb" >
+    insert into b_drug_numb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="drugBcode != null" >
+        drug_bcode,
+      </if>
+      <if test="provinceName != null" >
+        province_name,
+      </if>
+      <if test="drugNumb != null" >
+        drug_numb,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="drugBcode != null" >
+        #{drugBcode,jdbcType=NVARCHAR},
+      </if>
+      <if test="provinceName != null" >
+        #{provinceName,jdbcType=NVARCHAR},
+      </if>
+      <if test="drugNumb != null" >
+        #{drugNumb,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.seventeenkouer.da.model.DrugNumb" >
+    update b_drug_numb
+    <set >
+      <if test="drugBcode != null" >
+        drug_bcode = #{drugBcode,jdbcType=NVARCHAR},
+      </if>
+      <if test="provinceName != null" >
+        province_name = #{provinceName,jdbcType=NVARCHAR},
+      </if>
+      <if test="drugNumb != null" >
+        drug_numb = #{drugNumb,jdbcType=NVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.seventeenkouer.da.model.DrugNumb" >
+    update b_drug_numb
+    set drug_bcode = #{drugBcode,jdbcType=NVARCHAR},
+      province_name = #{provinceName,jdbcType=NVARCHAR},
+      drug_numb = #{drugNumb,jdbcType=NVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.seventeenkouer.da.mapper.DrugstoreInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.seventeenkouer.da.model.DrugstoreInfo" >
+    <id column="cid" property="cid" jdbcType="INTEGER" />
+    <result column="ds_code" property="dsCode" jdbcType="VARCHAR" />
+    <result column="ds_code2" property="dsCode2" jdbcType="VARCHAR" />
+    <result column="cname" property="cname" jdbcType="VARCHAR" />
+    <result column="pointx" property="pointx" jdbcType="DECIMAL" />
+    <result column="pointy" property="pointy" jdbcType="DECIMAL" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="levl" property="levl" jdbcType="VARCHAR" />
+    <result column="month_amt" property="monthAmt" jdbcType="DECIMAL" />
+    <result column="sales" property="sales" jdbcType="VARCHAR" />
+    <result column="sale_dbzh" property="saleDbzh" jdbcType="VARCHAR" />
+    <result column="dest_flag" property="destFlag" jdbcType="VARCHAR" />
+    <result column="fcreatetime" property="fcreatetime" jdbcType="TIMESTAMP" />
+    <result column="area_code" property="areaCode" jdbcType="VARCHAR" />
+    <result column="area_name" property="areaName" jdbcType="VARCHAR" />
+    <result column="use_flag" property="useFlag" jdbcType="BIT" />
+    <result column="city_code" property="cityCode" jdbcType="VARCHAR" />
+    <result column="city_name" property="cityName" jdbcType="VARCHAR" />
+    <result column="province_code" property="provinceCode" jdbcType="VARCHAR" />
+    <result column="province_name" property="provinceName" jdbcType="VARCHAR" />
+    <result column="contacts" property="contacts" jdbcType="VARCHAR" />
+    <result column="contacts_tel" property="contactsTel" jdbcType="VARCHAR" />
+    <result column="post_code" property="postCode" jdbcType="VARCHAR" />
+    <result column="jhqd" property="jhqd" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="crea_user_code" property="creaUserCode" jdbcType="VARCHAR" />
+    <result column="modifytime" property="modifytime" jdbcType="TIMESTAMP" />
+    <result column="modi_user_code" property="modiUserCode" jdbcType="VARCHAR" />
+    <result column="zb_flag" property="zbFlag" jdbcType="VARCHAR" />
+    <result column="chain_flag" property="chainFlag" jdbcType="VARCHAR" />
+    <result column="emph_flag" property="emphFlag" jdbcType="VARCHAR" />
+    <result column="levl2" property="levl2" jdbcType="VARCHAR" />
+    <result column="zbcname" property="zbcname" jdbcType="VARCHAR" />
+    <result column="cate_code" property="cateCode" jdbcType="VARCHAR" />
+    <result column="cate_name" property="cateName" jdbcType="VARCHAR" />
+    <result column="bit_flag" property="bitFlag" jdbcType="BIT" />
+    <result column="isDisable" property="isdisable" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    cid, ds_code, ds_code2, cname, pointx, pointy, address, levl, month_amt, sales, sale_dbzh, 
+    dest_flag, fcreatetime, area_code, area_name, use_flag, city_code, city_name, province_code, 
+    province_name, contacts, contacts_tel, post_code, jhqd, mobile, crea_user_code, modifytime, 
+    modi_user_code, zb_flag, chain_flag, emph_flag, levl2, zbcname, cate_code, cate_name, 
+    bit_flag, isDisable
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from b_drugstore_info
+    where cid = #{cid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from b_drugstore_info
+    where cid = #{cid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.seventeenkouer.da.model.DrugstoreInfo" >
+    insert into b_drugstore_info (cid, ds_code, ds_code2, 
+      cname, pointx, pointy, 
+      address, levl, month_amt, 
+      sales, sale_dbzh, dest_flag, 
+      fcreatetime, area_code, area_name, 
+      use_flag, city_code, city_name, 
+      province_code, province_name, contacts, 
+      contacts_tel, post_code, jhqd, 
+      mobile, crea_user_code, modifytime, 
+      modi_user_code, zb_flag, chain_flag, 
+      emph_flag, levl2, zbcname, 
+      cate_code, cate_name, bit_flag, 
+      isDisable)
+    values (#{cid,jdbcType=INTEGER}, #{dsCode,jdbcType=VARCHAR}, #{dsCode2,jdbcType=VARCHAR}, 
+      #{cname,jdbcType=VARCHAR}, #{pointx,jdbcType=DECIMAL}, #{pointy,jdbcType=DECIMAL}, 
+      #{address,jdbcType=VARCHAR}, #{levl,jdbcType=VARCHAR}, #{monthAmt,jdbcType=DECIMAL}, 
+      #{sales,jdbcType=VARCHAR}, #{saleDbzh,jdbcType=VARCHAR}, #{destFlag,jdbcType=VARCHAR}, 
+      #{fcreatetime,jdbcType=TIMESTAMP}, #{areaCode,jdbcType=VARCHAR}, #{areaName,jdbcType=VARCHAR}, 
+      #{useFlag,jdbcType=BIT}, #{cityCode,jdbcType=VARCHAR}, #{cityName,jdbcType=VARCHAR}, 
+      #{provinceCode,jdbcType=VARCHAR}, #{provinceName,jdbcType=VARCHAR}, #{contacts,jdbcType=VARCHAR}, 
+      #{contactsTel,jdbcType=VARCHAR}, #{postCode,jdbcType=VARCHAR}, #{jhqd,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{creaUserCode,jdbcType=VARCHAR}, #{modifytime,jdbcType=TIMESTAMP}, 
+      #{modiUserCode,jdbcType=VARCHAR}, #{zbFlag,jdbcType=VARCHAR}, #{chainFlag,jdbcType=VARCHAR}, 
+      #{emphFlag,jdbcType=VARCHAR}, #{levl2,jdbcType=VARCHAR}, #{zbcname,jdbcType=VARCHAR}, 
+      #{cateCode,jdbcType=VARCHAR}, #{cateName,jdbcType=VARCHAR}, #{bitFlag,jdbcType=BIT}, 
+      #{isdisable,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.seventeenkouer.da.model.DrugstoreInfo" >
+    insert into b_drugstore_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cid != null" >
+        cid,
+      </if>
+      <if test="dsCode != null" >
+        ds_code,
+      </if>
+      <if test="dsCode2 != null" >
+        ds_code2,
+      </if>
+      <if test="cname != null" >
+        cname,
+      </if>
+      <if test="pointx != null" >
+        pointx,
+      </if>
+      <if test="pointy != null" >
+        pointy,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="levl != null" >
+        levl,
+      </if>
+      <if test="monthAmt != null" >
+        month_amt,
+      </if>
+      <if test="sales != null" >
+        sales,
+      </if>
+      <if test="saleDbzh != null" >
+        sale_dbzh,
+      </if>
+      <if test="destFlag != null" >
+        dest_flag,
+      </if>
+      <if test="fcreatetime != null" >
+        fcreatetime,
+      </if>
+      <if test="areaCode != null" >
+        area_code,
+      </if>
+      <if test="areaName != null" >
+        area_name,
+      </if>
+      <if test="useFlag != null" >
+        use_flag,
+      </if>
+      <if test="cityCode != null" >
+        city_code,
+      </if>
+      <if test="cityName != null" >
+        city_name,
+      </if>
+      <if test="provinceCode != null" >
+        province_code,
+      </if>
+      <if test="provinceName != null" >
+        province_name,
+      </if>
+      <if test="contacts != null" >
+        contacts,
+      </if>
+      <if test="contactsTel != null" >
+        contacts_tel,
+      </if>
+      <if test="postCode != null" >
+        post_code,
+      </if>
+      <if test="jhqd != null" >
+        jhqd,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="creaUserCode != null" >
+        crea_user_code,
+      </if>
+      <if test="modifytime != null" >
+        modifytime,
+      </if>
+      <if test="modiUserCode != null" >
+        modi_user_code,
+      </if>
+      <if test="zbFlag != null" >
+        zb_flag,
+      </if>
+      <if test="chainFlag != null" >
+        chain_flag,
+      </if>
+      <if test="emphFlag != null" >
+        emph_flag,
+      </if>
+      <if test="levl2 != null" >
+        levl2,
+      </if>
+      <if test="zbcname != null" >
+        zbcname,
+      </if>
+      <if test="cateCode != null" >
+        cate_code,
+      </if>
+      <if test="cateName != null" >
+        cate_name,
+      </if>
+      <if test="bitFlag != null" >
+        bit_flag,
+      </if>
+      <if test="isdisable != null" >
+        isDisable,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cid != null" >
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="dsCode != null" >
+        #{dsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dsCode2 != null" >
+        #{dsCode2,jdbcType=VARCHAR},
+      </if>
+      <if test="cname != null" >
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="pointx != null" >
+        #{pointx,jdbcType=DECIMAL},
+      </if>
+      <if test="pointy != null" >
+        #{pointy,jdbcType=DECIMAL},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="levl != null" >
+        #{levl,jdbcType=VARCHAR},
+      </if>
+      <if test="monthAmt != null" >
+        #{monthAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="sales != null" >
+        #{sales,jdbcType=VARCHAR},
+      </if>
+      <if test="saleDbzh != null" >
+        #{saleDbzh,jdbcType=VARCHAR},
+      </if>
+      <if test="destFlag != null" >
+        #{destFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="fcreatetime != null" >
+        #{fcreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaName != null" >
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="useFlag != null" >
+        #{useFlag,jdbcType=BIT},
+      </if>
+      <if test="cityCode != null" >
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null" >
+        #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceCode != null" >
+        #{provinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceName != null" >
+        #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="contacts != null" >
+        #{contacts,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsTel != null" >
+        #{contactsTel,jdbcType=VARCHAR},
+      </if>
+      <if test="postCode != null" >
+        #{postCode,jdbcType=VARCHAR},
+      </if>
+      <if test="jhqd != null" >
+        #{jhqd,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="creaUserCode != null" >
+        #{creaUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null" >
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modiUserCode != null" >
+        #{modiUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="zbFlag != null" >
+        #{zbFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="chainFlag != null" >
+        #{chainFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="emphFlag != null" >
+        #{emphFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="levl2 != null" >
+        #{levl2,jdbcType=VARCHAR},
+      </if>
+      <if test="zbcname != null" >
+        #{zbcname,jdbcType=VARCHAR},
+      </if>
+      <if test="cateCode != null" >
+        #{cateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cateName != null" >
+        #{cateName,jdbcType=VARCHAR},
+      </if>
+      <if test="bitFlag != null" >
+        #{bitFlag,jdbcType=BIT},
+      </if>
+      <if test="isdisable != null" >
+        #{isdisable,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.seventeenkouer.da.model.DrugstoreInfo" >
+    update b_drugstore_info
+    <set >
+      <if test="dsCode != null" >
+        ds_code = #{dsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dsCode2 != null" >
+        ds_code2 = #{dsCode2,jdbcType=VARCHAR},
+      </if>
+      <if test="cname != null" >
+        cname = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="pointx != null" >
+        pointx = #{pointx,jdbcType=DECIMAL},
+      </if>
+      <if test="pointy != null" >
+        pointy = #{pointy,jdbcType=DECIMAL},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="levl != null" >
+        levl = #{levl,jdbcType=VARCHAR},
+      </if>
+      <if test="monthAmt != null" >
+        month_amt = #{monthAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="sales != null" >
+        sales = #{sales,jdbcType=VARCHAR},
+      </if>
+      <if test="saleDbzh != null" >
+        sale_dbzh = #{saleDbzh,jdbcType=VARCHAR},
+      </if>
+      <if test="destFlag != null" >
+        dest_flag = #{destFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="fcreatetime != null" >
+        fcreatetime = #{fcreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="areaCode != null" >
+        area_code = #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaName != null" >
+        area_name = #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="useFlag != null" >
+        use_flag = #{useFlag,jdbcType=BIT},
+      </if>
+      <if test="cityCode != null" >
+        city_code = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null" >
+        city_name = #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceCode != null" >
+        province_code = #{provinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceName != null" >
+        province_name = #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="contacts != null" >
+        contacts = #{contacts,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsTel != null" >
+        contacts_tel = #{contactsTel,jdbcType=VARCHAR},
+      </if>
+      <if test="postCode != null" >
+        post_code = #{postCode,jdbcType=VARCHAR},
+      </if>
+      <if test="jhqd != null" >
+        jhqd = #{jhqd,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="creaUserCode != null" >
+        crea_user_code = #{creaUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="modifytime != null" >
+        modifytime = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modiUserCode != null" >
+        modi_user_code = #{modiUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="zbFlag != null" >
+        zb_flag = #{zbFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="chainFlag != null" >
+        chain_flag = #{chainFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="emphFlag != null" >
+        emph_flag = #{emphFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="levl2 != null" >
+        levl2 = #{levl2,jdbcType=VARCHAR},
+      </if>
+      <if test="zbcname != null" >
+        zbcname = #{zbcname,jdbcType=VARCHAR},
+      </if>
+      <if test="cateCode != null" >
+        cate_code = #{cateCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cateName != null" >
+        cate_name = #{cateName,jdbcType=VARCHAR},
+      </if>
+      <if test="bitFlag != null" >
+        bit_flag = #{bitFlag,jdbcType=BIT},
+      </if>
+      <if test="isdisable != null" >
+        isDisable = #{isdisable,jdbcType=BIT},
+      </if>
+    </set>
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.seventeenkouer.da.model.DrugstoreInfo" >
+    update b_drugstore_info
+    set ds_code = #{dsCode,jdbcType=VARCHAR},
+      ds_code2 = #{dsCode2,jdbcType=VARCHAR},
+      cname = #{cname,jdbcType=VARCHAR},
+      pointx = #{pointx,jdbcType=DECIMAL},
+      pointy = #{pointy,jdbcType=DECIMAL},
+      address = #{address,jdbcType=VARCHAR},
+      levl = #{levl,jdbcType=VARCHAR},
+      month_amt = #{monthAmt,jdbcType=DECIMAL},
+      sales = #{sales,jdbcType=VARCHAR},
+      sale_dbzh = #{saleDbzh,jdbcType=VARCHAR},
+      dest_flag = #{destFlag,jdbcType=VARCHAR},
+      fcreatetime = #{fcreatetime,jdbcType=TIMESTAMP},
+      area_code = #{areaCode,jdbcType=VARCHAR},
+      area_name = #{areaName,jdbcType=VARCHAR},
+      use_flag = #{useFlag,jdbcType=BIT},
+      city_code = #{cityCode,jdbcType=VARCHAR},
+      city_name = #{cityName,jdbcType=VARCHAR},
+      province_code = #{provinceCode,jdbcType=VARCHAR},
+      province_name = #{provinceName,jdbcType=VARCHAR},
+      contacts = #{contacts,jdbcType=VARCHAR},
+      contacts_tel = #{contactsTel,jdbcType=VARCHAR},
+      post_code = #{postCode,jdbcType=VARCHAR},
+      jhqd = #{jhqd,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      crea_user_code = #{creaUserCode,jdbcType=VARCHAR},
+      modifytime = #{modifytime,jdbcType=TIMESTAMP},
+      modi_user_code = #{modiUserCode,jdbcType=VARCHAR},
+      zb_flag = #{zbFlag,jdbcType=VARCHAR},
+      chain_flag = #{chainFlag,jdbcType=VARCHAR},
+      emph_flag = #{emphFlag,jdbcType=VARCHAR},
+      levl2 = #{levl2,jdbcType=VARCHAR},
+      zbcname = #{zbcname,jdbcType=VARCHAR},
+      cate_code = #{cateCode,jdbcType=VARCHAR},
+      cate_name = #{cateName,jdbcType=VARCHAR},
+      bit_flag = #{bitFlag,jdbcType=BIT},
+      isDisable = #{isdisable,jdbcType=BIT}
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from b_drugstore_info
+
+  </select>
+
+  <select id="selectByPagination" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from b_drugstore_info
+  </select>
+</mapper>

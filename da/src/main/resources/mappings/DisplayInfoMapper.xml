@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.seventeenkouer.da.mapper.DisplayInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.seventeenkouer.da.model.DisplayInfo" >
+    <id column="cid" property="cid" jdbcType="INTEGER" />
+    <result column="ds_code" property="dsCode" jdbcType="VARCHAR" />
+    <result column="ds_code2" property="dsCode2" jdbcType="VARCHAR" />
+    <result column="ds_name" property="dsName" jdbcType="VARCHAR" />
+    <result column="drug_code" property="drugCode" jdbcType="VARCHAR" />
+    <result column="drug_numb" property="drugNumb" jdbcType="VARCHAR" />
+    <result column="drug_bcode" property="drugBcode" jdbcType="VARCHAR" />
+    <result column="drug_name" property="drugName" jdbcType="VARCHAR" />
+    <result column="disp_surf" property="dispSurf" jdbcType="VARCHAR" />
+    <result column="drug_price" property="drugPrice" jdbcType="DECIMAL" />
+    <result column="disp_posi" property="dispPosi" jdbcType="VARCHAR" />
+    <result column="store_num" property="storeNum" jdbcType="DECIMAL" />
+    <result column="seq_numb" property="seqNumb" jdbcType="VARCHAR" />
+    <result column="loginid" property="loginid" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="img_name" property="imgName" jdbcType="VARCHAR" />
+    <result column="updatename" property="updatename" jdbcType="VARCHAR" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="createname" property="createname" jdbcType="VARCHAR" />
+    <result column="price_levl" property="priceLevl" jdbcType="VARCHAR" />
+    <result column="uploadtime" property="uploadtime" jdbcType="TIMESTAMP" />
+    <result column="uploadtag" property="uploadtag" jdbcType="BIT" />
+    <result column="monthly_sales" property="monthlySales" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    cid, ds_code, ds_code2, ds_name, drug_code, drug_numb, drug_bcode, drug_name, disp_surf, 
+    drug_price, disp_posi, store_num, seq_numb, loginid, createtime, img_name, updatename, 
+    updatetime, createname, price_levl, uploadtime, uploadtag, monthly_sales
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from m_display_info
+    where cid = #{cid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from m_display_info
+    where cid = #{cid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.seventeenkouer.da.model.DisplayInfo" >
+    insert into m_display_info (cid, ds_code, ds_code2, 
+      ds_name, drug_code, drug_numb, 
+      drug_bcode, drug_name, disp_surf, 
+      drug_price, disp_posi, store_num, 
+      seq_numb, loginid, createtime, 
+      img_name, updatename, updatetime, 
+      createname, price_levl, uploadtime, 
+      uploadtag, monthly_sales)
+    values (#{cid,jdbcType=INTEGER}, #{dsCode,jdbcType=VARCHAR}, #{dsCode2,jdbcType=VARCHAR}, 
+      #{dsName,jdbcType=VARCHAR}, #{drugCode,jdbcType=VARCHAR}, #{drugNumb,jdbcType=VARCHAR}, 
+      #{drugBcode,jdbcType=VARCHAR}, #{drugName,jdbcType=VARCHAR}, #{dispSurf,jdbcType=VARCHAR}, 
+      #{drugPrice,jdbcType=DECIMAL}, #{dispPosi,jdbcType=VARCHAR}, #{storeNum,jdbcType=DECIMAL}, 
+      #{seqNumb,jdbcType=VARCHAR}, #{loginid,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{imgName,jdbcType=VARCHAR}, #{updatename,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{createname,jdbcType=VARCHAR}, #{priceLevl,jdbcType=VARCHAR}, #{uploadtime,jdbcType=TIMESTAMP}, 
+      #{uploadtag,jdbcType=BIT}, #{monthlySales,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.seventeenkouer.da.model.DisplayInfo" >
+    insert into m_display_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cid != null" >
+        cid,
+      </if>
+      <if test="dsCode != null" >
+        ds_code,
+      </if>
+      <if test="dsCode2 != null" >
+        ds_code2,
+      </if>
+      <if test="dsName != null" >
+        ds_name,
+      </if>
+      <if test="drugCode != null" >
+        drug_code,
+      </if>
+      <if test="drugNumb != null" >
+        drug_numb,
+      </if>
+      <if test="drugBcode != null" >
+        drug_bcode,
+      </if>
+      <if test="drugName != null" >
+        drug_name,
+      </if>
+      <if test="dispSurf != null" >
+        disp_surf,
+      </if>
+      <if test="drugPrice != null" >
+        drug_price,
+      </if>
+      <if test="dispPosi != null" >
+        disp_posi,
+      </if>
+      <if test="storeNum != null" >
+        store_num,
+      </if>
+      <if test="seqNumb != null" >
+        seq_numb,
+      </if>
+      <if test="loginid != null" >
+        loginid,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="imgName != null" >
+        img_name,
+      </if>
+      <if test="updatename != null" >
+        updatename,
+      </if>
+      <if test="updatetime != null" >
+        updatetime,
+      </if>
+      <if test="createname != null" >
+        createname,
+      </if>
+      <if test="priceLevl != null" >
+        price_levl,
+      </if>
+      <if test="uploadtime != null" >
+        uploadtime,
+      </if>
+      <if test="uploadtag != null" >
+        uploadtag,
+      </if>
+      <if test="monthlySales != null" >
+        monthly_sales,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cid != null" >
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="dsCode != null" >
+        #{dsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dsCode2 != null" >
+        #{dsCode2,jdbcType=VARCHAR},
+      </if>
+      <if test="dsName != null" >
+        #{dsName,jdbcType=VARCHAR},
+      </if>
+      <if test="drugCode != null" >
+        #{drugCode,jdbcType=VARCHAR},
+      </if>
+      <if test="drugNumb != null" >
+        #{drugNumb,jdbcType=VARCHAR},
+      </if>
+      <if test="drugBcode != null" >
+        #{drugBcode,jdbcType=VARCHAR},
+      </if>
+      <if test="drugName != null" >
+        #{drugName,jdbcType=VARCHAR},
+      </if>
+      <if test="dispSurf != null" >
+        #{dispSurf,jdbcType=VARCHAR},
+      </if>
+      <if test="drugPrice != null" >
+        #{drugPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="dispPosi != null" >
+        #{dispPosi,jdbcType=VARCHAR},
+      </if>
+      <if test="storeNum != null" >
+        #{storeNum,jdbcType=DECIMAL},
+      </if>
+      <if test="seqNumb != null" >
+        #{seqNumb,jdbcType=VARCHAR},
+      </if>
+      <if test="loginid != null" >
+        #{loginid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="imgName != null" >
+        #{imgName,jdbcType=VARCHAR},
+      </if>
+      <if test="updatename != null" >
+        #{updatename,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createname != null" >
+        #{createname,jdbcType=VARCHAR},
+      </if>
+      <if test="priceLevl != null" >
+        #{priceLevl,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadtime != null" >
+        #{uploadtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uploadtag != null" >
+        #{uploadtag,jdbcType=BIT},
+      </if>
+      <if test="monthlySales != null" >
+        #{monthlySales,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.seventeenkouer.da.model.DisplayInfo" >
+    update m_display_info
+    <set >
+      <if test="dsCode != null" >
+        ds_code = #{dsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dsCode2 != null" >
+        ds_code2 = #{dsCode2,jdbcType=VARCHAR},
+      </if>
+      <if test="dsName != null" >
+        ds_name = #{dsName,jdbcType=VARCHAR},
+      </if>
+      <if test="drugCode != null" >
+        drug_code = #{drugCode,jdbcType=VARCHAR},
+      </if>
+      <if test="drugNumb != null" >
+        drug_numb = #{drugNumb,jdbcType=VARCHAR},
+      </if>
+      <if test="drugBcode != null" >
+        drug_bcode = #{drugBcode,jdbcType=VARCHAR},
+      </if>
+      <if test="drugName != null" >
+        drug_name = #{drugName,jdbcType=VARCHAR},
+      </if>
+      <if test="dispSurf != null" >
+        disp_surf = #{dispSurf,jdbcType=VARCHAR},
+      </if>
+      <if test="drugPrice != null" >
+        drug_price = #{drugPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="dispPosi != null" >
+        disp_posi = #{dispPosi,jdbcType=VARCHAR},
+      </if>
+      <if test="storeNum != null" >
+        store_num = #{storeNum,jdbcType=DECIMAL},
+      </if>
+      <if test="seqNumb != null" >
+        seq_numb = #{seqNumb,jdbcType=VARCHAR},
+      </if>
+      <if test="loginid != null" >
+        loginid = #{loginid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="imgName != null" >
+        img_name = #{imgName,jdbcType=VARCHAR},
+      </if>
+      <if test="updatename != null" >
+        updatename = #{updatename,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createname != null" >
+        createname = #{createname,jdbcType=VARCHAR},
+      </if>
+      <if test="priceLevl != null" >
+        price_levl = #{priceLevl,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadtime != null" >
+        uploadtime = #{uploadtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uploadtag != null" >
+        uploadtag = #{uploadtag,jdbcType=BIT},
+      </if>
+      <if test="monthlySales != null" >
+        monthly_sales = #{monthlySales,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.seventeenkouer.da.model.DisplayInfo" >
+    update m_display_info
+    set ds_code = #{dsCode,jdbcType=VARCHAR},
+      ds_code2 = #{dsCode2,jdbcType=VARCHAR},
+      ds_name = #{dsName,jdbcType=VARCHAR},
+      drug_code = #{drugCode,jdbcType=VARCHAR},
+      drug_numb = #{drugNumb,jdbcType=VARCHAR},
+      drug_bcode = #{drugBcode,jdbcType=VARCHAR},
+      drug_name = #{drugName,jdbcType=VARCHAR},
+      disp_surf = #{dispSurf,jdbcType=VARCHAR},
+      drug_price = #{drugPrice,jdbcType=DECIMAL},
+      disp_posi = #{dispPosi,jdbcType=VARCHAR},
+      store_num = #{storeNum,jdbcType=DECIMAL},
+      seq_numb = #{seqNumb,jdbcType=VARCHAR},
+      loginid = #{loginid,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      img_name = #{imgName,jdbcType=VARCHAR},
+      updatename = #{updatename,jdbcType=VARCHAR},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      createname = #{createname,jdbcType=VARCHAR},
+      price_levl = #{priceLevl,jdbcType=VARCHAR},
+      uploadtime = #{uploadtime,jdbcType=TIMESTAMP},
+      uploadtag = #{uploadtag,jdbcType=BIT},
+      monthly_sales = #{monthlySales,jdbcType=DECIMAL}
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+</mapper>

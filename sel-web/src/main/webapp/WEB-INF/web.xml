@@ -65,7 +65,7 @@
 
 
     <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+        <listener-class>com.seventeenkouer.web.listener.WebContextLoaderListener</listener-class>
     </listener>
 
     <context-param>
