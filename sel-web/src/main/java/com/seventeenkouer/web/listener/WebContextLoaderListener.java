@@ -1,5 +1,7 @@
 package com.seventeenkouer.web.listener;
 
+import com.seventeenkouer.common.utils.SpringContextUtils;
+import com.seventeenkouer.service.DrugstoreInfoService;
 import org.springframework.web.context.ContextLoaderListener;
 
 import javax.servlet.ServletContextEvent;
@@ -13,13 +15,13 @@ import javax.servlet.ServletContextEvent;
  */
 public class WebContextLoaderListener extends ContextLoaderListener {
 
-
+    DrugstoreInfoService drugstoreInfoService = SpringContextUtils.getBean("drugstoreInfoServiceImpl");
 
     @Override
     public void contextInitialized(ServletContextEvent event) {
         //this.initWebApplicationContext(event.getServletContext());
         super.contextInitialized(event);
-        //todo: 初始化药店缓存
+        //drugstoreInfoService.cacheAllStores();
 
     }
 }

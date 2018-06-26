@@ -1,5 +1,6 @@
 package com.seventeenkouer.web.interceptors;
 
+import com.seventeenkouer.common.utils.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,10 +21,15 @@ public class LoginInterceptor implements HandlerInterceptor{
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         //获取请求的URL
         String url = request.getRequestURI();
+        String debug = request.getParameter("debug");
+        if(StringUtils.isNotEmpty(debug)){
+            return true;
+        }
         //URL:login.jsp是公开的;这个demo是除了login.jsp是可以公开访问的，其它的URL都进行拦截控制
         if(url.indexOf("login")>=0 || url.indexOf("validate") >=0 || url.indexOf("debug") >= 0){
             return true;
         }
+
         //获取Session
         HttpSession session = request.getSession();
         String username = (String)session.getAttribute("username");

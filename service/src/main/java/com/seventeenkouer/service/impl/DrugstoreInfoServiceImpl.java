@@ -2,11 +2,11 @@ package com.seventeenkouer.service.impl;
 
 import com.seventeenkouer.cache.CacheManager;
 import com.seventeenkouer.common.utils.MapUtils;
-import com.seventeenkouer.common.utils.StringUtils;
 import com.seventeenkouer.da.mapper.DrugstoreInfoMapper;
 import com.seventeenkouer.da.model.DrugstoreInfo;
 import com.seventeenkouer.service.DrugstoreInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +19,7 @@ import java.util.Map;
  * Time: 上午10:13
  * To change this template use File | Settings | File Templates.
  */
+@Service("drugstoreInfoServiceImpl")
 public class DrugstoreInfoServiceImpl implements DrugstoreInfoService {
     @Autowired
     DrugstoreInfoMapper drugstoreInfoMapper;
