@@ -23,4 +23,12 @@ public interface SysUserMapper {
      * @return 0:用户名密码错误 1：用户名或密码正确
      */
     Integer validateUser(@Param("account") String account, @Param("password") String password);
+
+    /**
+     * 获取用户
+     * @param account
+     * @param password
+     * @return
+     */
+    SysUser selectByAccountAndPsw(@Param("account") String account, @Param("password") String password);
 }

@@ -20,7 +20,7 @@ public class LoginInterceptor implements HandlerInterceptor{
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         //获取请求的URL
-        String url = request.getRequestURI();
+       /* String url = request.getRequestURI();
         String debug = request.getParameter("debug");
         if(StringUtils.isNotEmpty(debug)){
             return true;
@@ -40,7 +40,8 @@ public class LoginInterceptor implements HandlerInterceptor{
         //不符合条件的，跳转到登录界面
         request.getRequestDispatcher("/WEB-INF/views/user/login.jsp").forward(request, response);
 
-        return false;
+        return false;*/
+       return true;
     }
 
     @Override

@@ -261,4 +261,11 @@
     select count(1) from sys_user where floginid = #{account,jdbcType=VARCHAR} and fpassword = #{password,jdbcType=VARCHAR}
   </select>
 
+  <select id="selectByAccountAndPsw" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from sys_user
+    where floginid = #{account,jdbcType=VARCHAR} and fpassword = #{password,jdbcType=VARCHAR}
+  </select>
+
 </mapper>

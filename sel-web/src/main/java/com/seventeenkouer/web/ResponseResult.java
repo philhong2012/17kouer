@@ -8,20 +8,20 @@ package com.seventeenkouer.web;
  * To change this template use File | Settings | File Templates.
  */
 public class ResponseResult {
-    private String resultCode;
+    private String code;
     private Object message;
 
     public ResponseResult(String resultCode,Object o) {
-        this.resultCode = resultCode;
+        this.code = resultCode;
         this.message = o;
     }
 
-    public String getResultCode() {
-        return resultCode;
+    public String getCode() {
+        return code;
     }
 
-    public void setResultCode(String resultCode) {
-        this.resultCode = resultCode;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public Object getMessage() {

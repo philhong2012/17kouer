@@ -1,5 +1,8 @@
 package com.seventeenkouer.service;
 
+import com.seventeenkouer.da.model.SysUser;
+import org.apache.ibatis.annotations.Param;
+
 /**
  * Created by phil hong
  * User: wind
@@ -15,4 +18,12 @@ public interface SysUserService {
      * @return true：用户名密码正确；false：用户名或密码错误
      */
     boolean validateUser(String account,String password);
+
+    /**
+     * 获取用户
+     * @param account
+     * @param password
+     * @return
+     */
+    SysUser selectByAccountAndPsw(String account, String password);
 }

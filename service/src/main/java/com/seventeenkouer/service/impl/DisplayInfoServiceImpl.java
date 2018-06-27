@@ -4,6 +4,7 @@ import com.seventeenkouer.da.mapper.DisplayInfoMapper;
 import com.seventeenkouer.da.model.DisplayInfo;
 import com.seventeenkouer.service.DisplayInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by phil hong
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * Time: 上午10:26
  * To change this template use File | Settings | File Templates.
  */
+@Service("displayInfoServiceImpl")
 public class DisplayInfoServiceImpl implements DisplayInfoService {
     @Autowired
     DisplayInfoMapper displayInfoMapper;

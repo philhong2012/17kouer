@@ -2,6 +2,7 @@ package com.seventeenkouer.service.impl;
 
 import com.seventeenkouer.common.utils.StringUtils;
 import com.seventeenkouer.da.mapper.SysUserMapper;
+import com.seventeenkouer.da.model.SysUser;
 import com.seventeenkouer.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,5 +23,12 @@ public class SysUserServiceImpl implements SysUserService {
             return false;
         }
         return sysUserMapper.validateUser(account,password) > 0;
+    }
+
+    public SysUser selectByAccountAndPsw(String account, String password) {
+        if(StringUtils.isEmpty(account) || StringUtils.isEmpty(password)) {
+            return null;
+        }
+        return sysUserMapper.selectByAccountAndPsw(account,password);
     }
 }

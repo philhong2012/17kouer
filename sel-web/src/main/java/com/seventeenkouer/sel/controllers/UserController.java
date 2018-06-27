@@ -43,9 +43,11 @@ public class UserController {
     @RequestMapping(method = RequestMethod.POST, value = "/login")
     @ResponseBody
     public ResponseResult login(@RequestBody SysUser userDto, HttpServletRequest request, HttpServletResponse response) {
-        if (sysUserService.validateUser(userDto.getFloginid(), userDto.getFpassword())) {
-            request.getSession().setAttribute("username", userDto.getFename());
-            return new ResponseResult(ResultCode.SUCCESS,null);
+        SysUser loginUser = sysUserService.selectByAccountAndPsw(userDto.getFloginid(), userDto.getFpassword());
+        if (loginUser != null) {
+            request.getSession().setAttribute("user", loginUser);
+            loginUser.setFpassword(null);
+            return new ResponseResult(ResultCode.SUCCESS,loginUser);
         } else {
             return new ResponseResult(ResultCode.LOGIN_FAILED,null);
         }

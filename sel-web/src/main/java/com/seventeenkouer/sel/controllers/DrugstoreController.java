@@ -6,6 +6,8 @@ import com.seventeenkouer.da.model.SysUser;
 import com.seventeenkouer.service.DrugstoreInfoService;
 import com.seventeenkouer.service.SysUserService;
 import com.seventeenkouer.web.ResponseResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
- * ${DESCRIPTION}
+ * 药店控制器
  *
  * @author hongxubing
  * @create 2018-02-11 16:06
@@ -25,26 +27,19 @@ import java.util.List;
 @RequestMapping("/drugstore")
 public class DrugstoreController {
 
+    Logger logger = LoggerFactory.getLogger(DrugstoreController.class);
+
     @Autowired
     DrugstoreInfoService drugstoreInfoService;
-
-    //todo:tong
-    @RequestMapping(method = RequestMethod.POST, value = "/validate")
-    @ResponseBody
-    public ResponseResult validate(@RequestBody SysUser userDto, HttpServletRequest request, HttpServletResponse response) {
-
-
-        return new ResponseResult(ResultCode.SUCCESS,null);
-    }
 
     @RequestMapping(method = RequestMethod.POST, value = "/nearBy")
     @ResponseBody
     public ResponseResult getNearByStores(@RequestBody DrugstoreInfo drugstoreInfo, HttpServletRequest request, HttpServletResponse response) {
+        Long stateTime = System.currentTimeMillis();
         List<DrugstoreInfo> nearbyStores = drugstoreInfoService.getStoresByCoordinate(drugstoreInfo.getPointx().toString(),
                 drugstoreInfo.getPointy().toString(),1L);
-
+        logger.debug("获取周边药店耗时{}秒",(System.currentTimeMillis() - stateTime) / 1000);
         return new ResponseResult(ResultCode.SUCCESS,nearbyStores);
-
 
     }
 
