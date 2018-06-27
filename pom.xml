@@ -83,6 +83,16 @@
         </profile>
 
         <profile>
+            <id>minipro-dev-phone</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <env>minipro-dev-phone</env>
+            </properties>
+        </profile>
+
+        <profile>
             <id>minipro-dev-com</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
