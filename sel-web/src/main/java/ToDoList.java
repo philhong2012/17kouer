@@ -13,6 +13,5 @@ public class ToDoList {
     //todo: activiti 同一个节点产生多个任务,多线程测试并行完成任务时,引擎报错
     //todo: 基于spring-mvc的通用异常处理模块
     //todo: mybatis二级缓存的应用场景及例子
-
-
+    //todo: service，dao层单元测试模块
 }

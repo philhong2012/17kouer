@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -53,5 +54,11 @@ public class DrugstoreInfoServiceImpl implements DrugstoreInfoService {
            }
         }
 
+    }
+
+    public Integer saveStore(DrugstoreInfo drugstoreInfo) {
+        drugstoreInfo.setFcreatetime(new Date(System.currentTimeMillis()));
+        //drugstoreInfo.set
+        return drugstoreInfoMapper.insertSelective(drugstoreInfo);
     }
 }

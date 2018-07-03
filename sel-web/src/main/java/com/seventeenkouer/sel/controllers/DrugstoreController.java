@@ -1,5 +1,6 @@
 package com.seventeenkouer.sel.controllers;
 
+import com.seventeenkouer.common.Exception.SeventeenkouException;
 import com.seventeenkouer.common.constants.ResultCode;
 import com.seventeenkouer.da.model.DrugstoreInfo;
 import com.seventeenkouer.da.model.SysUser;
@@ -43,11 +44,19 @@ public class DrugstoreController {
 
     }
 
+    @RequestMapping(method = RequestMethod.POST, value = "/saveStoreInfo")
+    @ResponseBody
+    public ResponseResult saveStoreInfo(@RequestBody DrugstoreInfo drugstoreInfo, HttpServletRequest request, HttpServletResponse response) {
+        drugstoreInfoService.saveStore(drugstoreInfo);
+        return new ResponseResult(ResultCode.SUCCESS,drugstoreInfo);
 
+    }
     @RequestMapping(method = RequestMethod.GET, value = "/store/{id}")
     @ResponseBody
     public ResponseResult getStoreInfo(@PathVariable("id") Integer id, HttpServletRequest request, HttpServletResponse response) {
-        DrugstoreInfo drugstoreInfo = drugstoreInfoService.getStoreByKey(id);
-        return new ResponseResult(ResultCode.SUCCESS,drugstoreInfo);
+
+        throw new SeventeenkouException("002","chu cuo la");
+        //DrugstoreInfo drugstoreInfo = drugstoreInfoService.getStoreByKey(id);
+        //return new ResponseResult(ResultCode.SUCCESS,drugstoreInfo);
     }
 }

@@ -32,4 +32,11 @@ public interface DrugstoreInfoService {
      * 缓存所有药店信息
      */
     void cacheAllStores();
+
+    /**
+     * 保存药店
+     * @param drugstoreInfo
+     * @return
+     */
+    Integer saveStore(DrugstoreInfo drugstoreInfo);
 }

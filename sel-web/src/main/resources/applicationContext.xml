@@ -15,6 +15,8 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframew
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
+    <bean class="com.seventeenkouer.web.CustomExceptionResolver"></bean>
+
     <bean id="springContextUtils" class="com.seventeenkouer.common.utils.SpringContextUtils"></bean>
 
     <bean id="dataSource"
