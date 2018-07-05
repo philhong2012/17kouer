@@ -54,9 +54,7 @@ public class DrugstoreController {
     @RequestMapping(method = RequestMethod.GET, value = "/store/{id}")
     @ResponseBody
     public ResponseResult getStoreInfo(@PathVariable("id") Integer id, HttpServletRequest request, HttpServletResponse response) {
-
-        throw new SeventeenkouException("002","chu cuo la");
-        //DrugstoreInfo drugstoreInfo = drugstoreInfoService.getStoreByKey(id);
-        //return new ResponseResult(ResultCode.SUCCESS,drugstoreInfo);
+        DrugstoreInfo drugstoreInfo = drugstoreInfoService.getStoreByKey(id);
+        return new ResponseResult(ResultCode.SUCCESS,drugstoreInfo);
     }
 }

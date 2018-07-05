@@ -5,6 +5,7 @@ import com.seventeenkouer.da.model.DisplayInfo;
 import com.seventeenkouer.service.DisplayInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 /**
  * Created by phil hong
@@ -19,6 +20,8 @@ public class DisplayInfoServiceImpl implements DisplayInfoService {
     DisplayInfoMapper displayInfoMapper;
 
     public Integer saveDisplayInfo(DisplayInfo displayInfo) {
+        Assert.hasText(displayInfo.getDrugBcode(),"药品条码不能为空");
+        Assert.hasText(displayInfo.getDrugName(),"药品名称不能为空");
         return displayInfoMapper.insertSelective(displayInfo);
     }
 }

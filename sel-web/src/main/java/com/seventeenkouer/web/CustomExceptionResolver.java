@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.seventeenkouer.common.constants.ResultCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,15 +21,18 @@ import java.io.IOException;
  */
 public class CustomExceptionResolver implements HandlerExceptionResolver {
 
-    public static final String APPLICATION_JSON_UTF8 = "application/json;charset=UTF-8";
+    private static final String APPLICATION_JSON_UTF8 = "application/json;charset=UTF-8";
+    private static final String APPLICATION_JSON = "application/json";
     Logger logger = LoggerFactory.getLogger(CustomExceptionResolver.class);
     @Override
+    @ResponseBody
     public ModelAndView resolveException(HttpServletRequest request,
                                          HttpServletResponse response, Object handler, Exception ex) {
+        ModelAndView mv = new ModelAndView();
+        logger.error("", ex);
+        if(request.getContentType() != null && request.getContentType().toLowerCase().indexOf(APPLICATION_JSON) > -1) {
 
-        if(request.getContentType() != null && request.getContentType().indexOf(APPLICATION_JSON_UTF8) > 0) {
 
-            logger.error("", ex);
             ResponseResult error = new ResponseResult(ResultCode.ERROR, ex.getMessage());
 
             String JsonStr = JSON.toJSONString(error);
@@ -43,8 +47,9 @@ public class CustomExceptionResolver implements HandlerExceptionResolver {
             } catch (IOException e) {
                 logger.error("", ex);
             }
+            return mv;
         }
-
-        return new ModelAndView();
+        //todo 一个定制的错误页面
+        return mv;
     }
 }
