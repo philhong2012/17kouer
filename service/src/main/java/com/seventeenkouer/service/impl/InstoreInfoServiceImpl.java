@@ -6,6 +6,8 @@ import com.seventeenkouer.service.InstoreInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 /**
  * Created by phil hong
  * User: wind
@@ -17,7 +19,10 @@ import org.springframework.stereotype.Service;
 public class InstoreInfoServiceImpl implements InstoreInfoService {
     @Autowired
     InstoreInfoMapper instoreInfoMapper;
+
     public Integer saveInstoreInfo(InstoreInfo instoreInfo) {
+        Long currentTime = System.currentTimeMillis();
+        instoreInfo.setInDate(new Date(currentTime));
         return instoreInfoMapper.insertSelective(instoreInfo);
     }
 }

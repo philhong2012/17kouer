@@ -57,7 +57,7 @@
     delete from b_drugstore_info
     where cid = #{cid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.seventeenkouer.da.model.DrugstoreInfo" >
+  <insert id="insert" keyProperty="cid" parameterType="com.seventeenkouer.da.model.DrugstoreInfo" >
     insert into b_drugstore_info (cid, ds_code, ds_code2, 
       cname, pointx, pointy, 
       address, levl, month_amt, 
@@ -86,6 +86,9 @@
       #{isdisable,jdbcType=BIT})
   </insert>
   <insert id="insertSelective" parameterType="com.seventeenkouer.da.model.DrugstoreInfo" >
+    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="cid">
+      SELECT @@IDENTITY
+    </selectKey>
     insert into b_drugstore_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="cid != null" >

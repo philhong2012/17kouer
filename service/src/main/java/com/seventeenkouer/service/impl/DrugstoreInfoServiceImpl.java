@@ -7,6 +7,7 @@ import com.seventeenkouer.da.model.DrugstoreInfo;
 import com.seventeenkouer.service.DrugstoreInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,6 +34,8 @@ public class DrugstoreInfoServiceImpl implements DrugstoreInfoService {
     }
 
     public List<DrugstoreInfo> getStoresByCoordinate(String latitude, String longitude, Long distance) {
+        Assert.hasText(latitude,"纬度不能为空");
+        Assert.hasText(longitude,"经度不能为空");
         List<DrugstoreInfo> drugstoreInfos = new ArrayList<DrugstoreInfo>(50);
         for (Map.Entry<String,DrugstoreInfo> entry : CacheManager.getStoreInfoCache().entrySet()) {
             if(entry.getValue()!=null && entry.getValue().getPointy()!= null) {
@@ -57,6 +60,7 @@ public class DrugstoreInfoServiceImpl implements DrugstoreInfoService {
     }
 
     public Integer saveStore(DrugstoreInfo drugstoreInfo) {
+        Assert.hasText(drugstoreInfo.getCname(),"药店名称不能为空");
         drugstoreInfo.setFcreatetime(new Date(System.currentTimeMillis()));
         //drugstoreInfo.set
         return drugstoreInfoMapper.insertSelective(drugstoreInfo);

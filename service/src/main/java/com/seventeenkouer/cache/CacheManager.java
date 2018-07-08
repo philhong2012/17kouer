@@ -5,6 +5,7 @@ import com.seventeenkouer.da.model.SysUser;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by phil hong
@@ -14,7 +15,7 @@ import java.util.Map;
  * To change this template use File | Settings | File Templates.
  */
 public class CacheManager {
-    private final static Map<String,DrugstoreInfo> storeInfoMap = new HashMap<String, DrugstoreInfo>(80000);
+    private final static ConcurrentHashMap<String,DrugstoreInfo> storeInfoMap = new ConcurrentHashMap<String, DrugstoreInfo>(80000);
 
     private final static Map<String,SysUser> userInfoMap = new HashMap<String, SysUser>(50000);
 

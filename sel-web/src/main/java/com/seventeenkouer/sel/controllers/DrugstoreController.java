@@ -1,5 +1,6 @@
 package com.seventeenkouer.sel.controllers;
 
+import com.seventeenkouer.cache.CacheManager;
 import com.seventeenkouer.common.Exception.SeventeenkouException;
 import com.seventeenkouer.common.constants.ResultCode;
 import com.seventeenkouer.da.model.DrugstoreInfo;
@@ -9,6 +10,7 @@ import com.seventeenkouer.service.SysUserService;
 import com.seventeenkouer.web.ResponseResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.CachedIntrospectionResults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -47,7 +49,9 @@ public class DrugstoreController {
     @RequestMapping(method = RequestMethod.POST, value = "/saveStoreInfo")
     @ResponseBody
     public ResponseResult saveStoreInfo(@RequestBody DrugstoreInfo drugstoreInfo, HttpServletRequest request, HttpServletResponse response) {
-        drugstoreInfoService.saveStore(drugstoreInfo);
+        Integer result = drugstoreInfoService.saveStore(drugstoreInfo);
+        logger.info("插入药店返回：{}",result);
+        CacheManager.putStoreCache(drugstoreInfo.getCid().toString(),drugstoreInfo);
         return new ResponseResult(ResultCode.SUCCESS,drugstoreInfo);
 
     }
