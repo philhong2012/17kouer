@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -47,6 +48,12 @@ public class DrugstoreInfoServiceImpl implements DrugstoreInfoService {
         }
 
         return drugstoreInfos;
+    }
+
+    public List<DrugstoreInfo> getNearByStores(BigDecimal longitude, BigDecimal latitude, Long distance) {
+        Assert.notNull(latitude,"纬度不能为空");
+        Assert.notNull(longitude,"经度不能为空");
+        return drugstoreInfoMapper.getNearByStores(longitude,latitude,distance);
     }
 
     public void cacheAllStores() {

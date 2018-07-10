@@ -101,6 +101,17 @@
                 <env>minipro-dev-com</env>
             </properties>
         </profile>
+
+        <profile>
+            <id>minipro-dev-txy</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <env>minipro-dev-txy</env>
+            </properties>
+        </profile>
+
         <profile>
             <id>dev</id>
             <activation>

@@ -483,4 +483,11 @@
     <include refid="Base_Column_List" />
     from b_drugstore_info
   </select>
+
+  <select id="getNearByStores" resultMap="BaseResultMap">
+    select cid,cname,dest_flag,city_code,city_name from b_drugstore_info where cid in
+
+    (select cid from (select dbo.f_GetDistance(#{longitude,jdbcType=DECIMAL},#{latitude,jdbcType=DECIMAL},ds.pointx,ds.pointy) as distance,ds.cid
+    from b_drugstore_info ds) d where distance &lt;= #{distance,jdbcType=INTEGER})
+  </select>
 </mapper>

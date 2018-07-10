@@ -23,6 +23,10 @@ public class SpringContextRefreshedEvent implements ApplicationListener<ContextR
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        dss.cacheAllStores();
+        /**
+         * 目前有7万多家药店，当云主机的带宽只有1M的时候，如果应用与数据库不部署在同一机器，查询数据库要耗时2分钟左右
+         * 是否可以启动多个线程，每个线程负责取特定页的数据，切割7万条数据分成20份，每份3500+，异步缓存？
+         */
+        //dss.cacheAllStores();
     }
 }
