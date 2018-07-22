@@ -1,5 +1,7 @@
 package com.seventeenkouer.da.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class InstoreInfo {
@@ -177,6 +179,7 @@ public class InstoreInfo {
      * null
      * @return in_date null
      */
+
     public Date getInDate() {
         return inDate;
     }

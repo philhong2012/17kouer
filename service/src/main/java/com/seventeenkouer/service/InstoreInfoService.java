@@ -2,6 +2,10 @@ package com.seventeenkouer.service;
 
 import com.seventeenkouer.da.model.InstoreInfo;
 
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by phil hong
  * User: wind
@@ -16,5 +20,20 @@ public interface InstoreInfoService {
      * @return >0 表示成功，否则不成功
      */
     Integer saveInstoreInfo(InstoreInfo instoreInfo);
+
+    /**
+     * 获取当天的巡店记录
+     * @param loginId 账号Id
+     * @return 巡店记录
+     */
+    List<InstoreInfo> getTodayInstoreInfo(String loginId);
+
+    /**
+     *
+     * @param loginId 账号Id
+     * @param inDate 进店日期
+     * @return 巡店记录
+     */
+    List<InstoreInfo> getInstoreInfoDate(String loginId, Date inDate);
 
 }

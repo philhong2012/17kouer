@@ -34,4 +34,12 @@ public class InstoreController {
     }
 
 
+
+    @RequestMapping(method = RequestMethod.GET, value = "/todayInstoreInfo/{loginId}")
+    @ResponseBody
+    public ResponseResult getTodayInstoreInfo(@PathVariable("loginId") String loginId, HttpServletRequest request, HttpServletResponse response) {
+        List<InstoreInfo> instoreInfos = instoreInfoService.getTodayInstoreInfo(loginId);
+        return new ResponseResult(ResultCode.SUCCESS,instoreInfos);
+    }
+
 }

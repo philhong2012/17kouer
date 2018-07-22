@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by phil hong
@@ -24,5 +27,16 @@ public class InstoreInfoServiceImpl implements InstoreInfoService {
         Long currentTime = System.currentTimeMillis();
         instoreInfo.setInDate(new Date(currentTime));
         return instoreInfoMapper.insertSelective(instoreInfo);
+    }
+
+    public List<InstoreInfo> getTodayInstoreInfo(String loginId) {
+        return instoreInfoMapper.getTodayInstoreInfo(loginId);
+    }
+
+    public List<InstoreInfo> getInstoreInfoDate(String loginId, Date inDate) {
+        Map<String,Object> criteria = new HashMap<String, Object>(2);
+        criteria.put("loginId",loginId);
+        criteria.put("inDate",inDate);
+        return instoreInfoMapper.getInstoreInfoByMap(criteria);
     }
 }

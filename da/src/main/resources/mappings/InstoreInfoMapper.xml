@@ -244,4 +244,13 @@
       ds_upload_tag = #{dsUploadTag,jdbcType=BIT}
     where cid = #{cid,jdbcType=INTEGER}
   </update>
+
+  <select id="getTodayInstoreInfo" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select * from m_instore_info where floginid= #{loginId,jdbcType=VARCHAR} and  datediff (day,in_date,getdate()) =0
+  </select>
+
+  <select id="getInstoreInfoByMap" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select * from m_instore_info where floginid= #{loginId} and  datediff (day,in_date,#{inDate}) =0
+  </select>
+
 </mapper>
