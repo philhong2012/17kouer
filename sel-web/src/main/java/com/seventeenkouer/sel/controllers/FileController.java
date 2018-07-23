@@ -10,9 +10,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.nio.file.Path;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created by phil hong
@@ -27,17 +27,19 @@ public class FileController extends BaseController {
     String basePath = SystemProperties.getProperty("upload.url");
 
     @RequestMapping(value="/upload")
-    public ResponseResult upload(@RequestParam MultipartFile[] uploadFiles) {
+    public ResponseResult upload(@RequestParam MultipartFile[] uploadFiles,
+                                 @RequestParam String loginId) {
         List<String> arrFiles = new ArrayList<>(10);
         for(MultipartFile file : uploadFiles) {
             if(file.getSize() > 0) {
                 //String fileName = file.getOriginalFilename();
                 //201408\180710_1407511489281.jpg
-                String fileName = UUID.randomUUID().toString();
+                String folder = createFolderByDate(basePath);
+                String fileName = folder + File.separator + loginId + "-" + UUID.randomUUID().toString();
                 String ext = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".")+1);
                 fileName = fileName +"."+ ext;
                 arrFiles.add(fileName);
-                File f = new File(basePath,fileName);
+                File f = new File(fileName);
                 try {
                     file.transferTo(f);
                 } catch (IOException e) {
@@ -48,5 +50,37 @@ public class FileController extends BaseController {
             }
         }
         return new ResponseResult(ResultCode.SUCCESS,arrFiles);
+    }
+
+
+    public static void main(String[] args) {
+        createFolderByDate("/Users/wind/work");
+    }
+
+
+
+    private static String createFolderByDate(String basePath) {
+        SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+        //String fileName = format.format(calendar.getTime());
+        //String fullPath = basePath+ File.separator + fileName;
+        Integer year = calendar.get(calendar.YEAR);
+        String yearPath = basePath + File.separator + year.toString()+ File.separator;
+        createFolder(yearPath);
+        Integer month = calendar.get(calendar.MONTH);
+        Integer day = calendar.get(calendar.DATE);
+        String datePath = basePath + File.separator + year.toString() +
+                File.separator + month.toString() + "-" + day.toString() + File.separator;
+        createFolder(datePath);
+        return datePath;
+    }
+
+
+    private static String createFolder(String path) {
+        File dir = new File(path);
+        if(!dir.exists()) {
+            dir.mkdir();
+        }
+        return path;
     }
 }
