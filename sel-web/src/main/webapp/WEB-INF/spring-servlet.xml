@@ -40,7 +40,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
                 <value>application/x-www-form-urlencoded; charset=UTF-8</value>
             </list>
         </property>
-        <property name="defaultDateFormat" value="yyyy-MM-dd hh:mm:ss"></property>
+        <property name="defaultDateFormat" value="yyyy-MM-dd HH:mm:ss"></property>
     </bean>
 
     <context:property-placeholder ignore-unresolvable="true"
