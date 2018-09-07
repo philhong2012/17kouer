@@ -15,7 +15,8 @@ import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.type.TypeHandler;
 import org.apache.ibatis.type.TypeHandlerRegistry;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.xml.bind.PropertyException;
 import java.sql.Connection;
@@ -30,7 +31,7 @@ import java.util.Properties;
 @Intercepts({@Signature(type=Executor.class,method="query",args={ MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class })})
 public class PaginationInterceptor implements Interceptor {
 
-	private static Logger log = Logger.getLogger(PaginationInterceptor.class);
+	private static Logger logger = LoggerFactory.getLogger(PaginationInterceptor.class);
 	private static String dialectConf = "";	//数据库方言
 	private static Dialect dialect = new MySql5Dialect();	//数据库方言
 	private static String pageSqlId = ""; //mapper.xml中需要拦截的ID(正则匹配)
