@@ -46,7 +46,7 @@ public class UserController {
         SysUser loginUser = sysUserService.selectByAccountAndPsw(userDto.getFloginid(), userDto.getFpassword());
         if (loginUser != null) {
             request.getSession().setAttribute("user", loginUser);
-            loginUser.setFpassword(null);
+            //loginUser.setFpassword(null);
             return new ResponseResult(ResultCode.SUCCESS,loginUser);
         } else {
             return new ResponseResult(ResultCode.LOGIN_FAILED,null);

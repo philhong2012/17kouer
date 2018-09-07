@@ -280,4 +280,12 @@
       pack_unit = #{packUnit,jdbcType=VARCHAR}
     where cid = #{cid,jdbcType=INTEGER}
   </update>
+
+
+  <select id="selectByCode" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from b_drug_info
+    where drug_bcode = #{drugBcode,jdbcType=VARCHAR}
+  </select>
 </mapper>

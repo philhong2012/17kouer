@@ -1,6 +1,7 @@
 package com.seventeenkouer.da.mapper;
 
 import com.seventeenkouer.da.model.DrugInfo;
+import org.apache.ibatis.annotations.Param;
 
 public interface DrugInfoMapper {
     int deleteByPrimaryKey(Integer cid);
@@ -14,4 +15,6 @@ public interface DrugInfoMapper {
     int updateByPrimaryKeySelective(DrugInfo record);
 
     int updateByPrimaryKey(DrugInfo record);
+
+    DrugInfo selectByCode(@Param("drugBcode") String drugBcode);
 }

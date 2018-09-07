@@ -246,7 +246,7 @@
   </update>
 
   <select id="getTodayInstoreInfo" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select * from m_instore_info where floginid= #{loginId,jdbcType=VARCHAR} and  datediff (day,in_date,getdate()) =0
+    select * from m_instore_info where floginid= #{loginId,jdbcType=VARCHAR} and  datediff (day,in_date,getdate()) =0 order by in_date desc ;
   </select>
 
   <select id="getInstoreInfoByMap" parameterType="java.util.Map" resultMap="BaseResultMap">
