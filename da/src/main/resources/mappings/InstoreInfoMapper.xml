@@ -249,6 +249,39 @@
     select * from m_instore_info where floginid= #{loginId,jdbcType=VARCHAR} and  datediff (day,in_date,getdate()) =0 order by in_date desc ;
   </select>
 
+  <select id="getTodayInstoreInfoExcludeHavingNoDetails" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    c.cid,
+    c.ds_code,
+    c.createtime as in_date,
+    d.cname as ds_name
+  from (
+         select
+           cid,
+           ds_code,
+           createtime,
+           ROW_NUMBER()
+           over ( partition by ds_code
+             order by createtime desc ) RowNum
+         from (select
+                 cid,
+                 ds_code,
+
+                 createtime
+               from (
+                      select
+                        cid,
+                        ds_code,
+                        createtime
+                      from m_display_info
+                      where datediff(day, createtime, getdate()) = 0 and loginid = #{loginId,jdbcType=VARCHAR}) a) b) c
+
+  inner join b_drugstore_info d
+  on d.ds_code2 = c.ds_code
+  where c.RowNum = 1 order by c.createtime desc;
+  </select>
+
+
   <select id="getInstoreInfoByMap" parameterType="java.util.Map" resultMap="BaseResultMap">
     select * from m_instore_info where floginid= #{loginId} and  datediff (day,in_date,#{inDate}) =0
   </select>

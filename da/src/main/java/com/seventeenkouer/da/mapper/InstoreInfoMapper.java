@@ -21,5 +21,7 @@ public interface InstoreInfoMapper {
 
     List<InstoreInfo> getTodayInstoreInfo(@Param("loginId") String loginId);
 
+    List<InstoreInfo> getTodayInstoreInfoExcludeHavingNoDetails(@Param("loginId") String loginId);
+
     List<InstoreInfo> getInstoreInfoByMap(Map<String,Object> map);
 }

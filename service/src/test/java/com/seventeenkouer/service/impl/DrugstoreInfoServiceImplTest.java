@@ -5,6 +5,7 @@ import com.seventeenkouer.da.model.DrugstoreInfo;
 import com.seventeenkouer.service.DrugstoreInfoService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
 
 import java.util.Date;
 
@@ -21,8 +22,10 @@ public class DrugstoreInfoServiceImplTest extends BaseTest {
     DrugstoreInfoService drugstoreInfoService;
 
     @Test
+    @Rollback(false)
     public void saveStore() {
         DrugstoreInfo drugstoreInfo = new DrugstoreInfo();
+        drugstoreInfo.setCname("test");
         drugstoreInfo.setDsCode("test");
         drugstoreInfo.setAreaCode("test");
         drugstoreInfo.setFcreatetime(new Date(System.currentTimeMillis()));

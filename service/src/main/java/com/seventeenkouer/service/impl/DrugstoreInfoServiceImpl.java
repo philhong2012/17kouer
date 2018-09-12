@@ -68,8 +68,19 @@ public class DrugstoreInfoServiceImpl implements DrugstoreInfoService {
 
     public Integer saveStore(DrugstoreInfo drugstoreInfo) {
         Assert.hasText(drugstoreInfo.getCname(),"药店名称不能为空");
+
+
         drugstoreInfo.setFcreatetime(new Date(System.currentTimeMillis()));
         //drugstoreInfo.set
-        return drugstoreInfoMapper.insertSelective(drugstoreInfo);
+        drugstoreInfoMapper.insertSelective(drugstoreInfo);
+
+
+        DrugstoreInfo toUpdate = new DrugstoreInfo();
+        toUpdate.setCid(drugstoreInfo.getCid());
+        //设置药店编码,将药店编码设置成药店id，前缀"00"
+        toUpdate.setDsCode("00"+drugstoreInfo.getCid());
+        toUpdate.setDsCode2(drugstoreInfo.getCityCode()+toUpdate.getDsCode());
+        drugstoreInfoMapper.updateByPrimaryKeySelective(toUpdate);
+        return drugstoreInfo.getCid();
     }
 }

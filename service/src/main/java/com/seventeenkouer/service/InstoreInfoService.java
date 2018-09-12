@@ -28,6 +28,15 @@ public interface InstoreInfoService {
      */
     List<InstoreInfo> getTodayInstoreInfo(String loginId);
 
+
+
+    /**
+     * 获取当天的巡店记录,过滤掉不包含巡店详情掉数据
+     * @param loginId 账号Id
+     * @return 巡店记录
+     */
+    List<InstoreInfo> getTodayInstoreInfoExcludeHavingNoDetails(String loginId);
+
     /**
      *
      * @param loginId 账号Id

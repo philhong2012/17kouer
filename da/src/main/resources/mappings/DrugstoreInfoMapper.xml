@@ -85,10 +85,7 @@
       #{cateCode,jdbcType=VARCHAR}, #{cateName,jdbcType=VARCHAR}, #{bitFlag,jdbcType=BIT}, 
       #{isdisable,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.seventeenkouer.da.model.DrugstoreInfo" >
-    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="cid">
-      SELECT @@IDENTITY
-    </selectKey>
+  <insert id="insertSelective" keyProperty="cid" useGeneratedKeys="true" parameterType="com.seventeenkouer.da.model.DrugstoreInfo" >
     insert into b_drugstore_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="cid != null" >

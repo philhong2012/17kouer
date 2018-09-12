@@ -33,6 +33,10 @@ public class InstoreInfoServiceImpl implements InstoreInfoService {
         return instoreInfoMapper.getTodayInstoreInfo(loginId);
     }
 
+    public List<InstoreInfo> getTodayInstoreInfoExcludeHavingNoDetails(String loginId) {
+        return instoreInfoMapper.getTodayInstoreInfoExcludeHavingNoDetails(loginId);
+    }
+
     public List<InstoreInfo> getInstoreInfoDate(String loginId, Date inDate) {
         Map<String,Object> criteria = new HashMap<String, Object>(2);
         criteria.put("loginId",loginId);
