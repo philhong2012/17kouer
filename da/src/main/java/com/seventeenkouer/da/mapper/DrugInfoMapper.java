@@ -17,4 +17,6 @@ public interface DrugInfoMapper {
     int updateByPrimaryKey(DrugInfo record);
 
     DrugInfo selectByCode(@Param("drugBcode") String drugBcode);
+
+    DrugInfo selectByCode2(@Param("drugCode") String drugCode);
 }

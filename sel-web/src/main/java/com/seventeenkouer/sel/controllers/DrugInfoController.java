@@ -32,4 +32,12 @@ public class DrugInfoController {
         DrugInfo drugInfo =drugInfoService.selectByCode(drugBcode);
         return new ResponseResult(ResultCode.SUCCESS,drugInfo);
     }
+
+
+    @RequestMapping(method = RequestMethod.GET, value = "/drugInfoByCode2/{drugCode}")
+    @ResponseBody
+    public ResponseResult getDrugInfoByCode2(@PathVariable("drugCode") String drugCode, HttpServletRequest request, HttpServletResponse response) {
+        DrugInfo drugInfo =drugInfoService.selectByCode2(drugCode);
+        return new ResponseResult(ResultCode.SUCCESS,drugInfo);
+    }
 }

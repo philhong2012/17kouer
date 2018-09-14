@@ -288,4 +288,11 @@
     from b_drug_info
     where drug_bcode = #{drugBcode,jdbcType=VARCHAR}
   </select>
+
+  <select id="selectByCode2" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from b_drug_info
+    where drup_code = #{drugCode,jdbcType=VARCHAR}
+  </select>
 </mapper>

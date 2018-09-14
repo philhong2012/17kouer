@@ -22,4 +22,8 @@ public class DrugInfoServiceImpl implements DrugInfoService {
     public DrugInfo selectByCode(String drugBcode) {
         return drugInfoMapper.selectByCode(drugBcode);
     }
+
+    public DrugInfo selectByCode2(String drugCode) {
+        return drugInfoMapper.selectByCode2(drugCode);
+    }
 }

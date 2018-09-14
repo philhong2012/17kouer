@@ -17,4 +17,12 @@ public interface DrugInfoService {
      * @return
      */
     DrugInfo selectByCode(String drugBcode);
+
+
+    /**
+     * 根据编码获取药品信息
+     * @param drugCode 药品编码
+     * @return
+     */
+    DrugInfo selectByCode2(String drugCode);
 }
